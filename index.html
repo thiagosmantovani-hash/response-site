@@ -1,0 +1,955 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Response Agência</title>
+<meta name="description" content="Agência de marketing que une estratégia, branding, performance e criatividade para promover crescimento sustentável.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&family=Archivo:wdth,wght@125,800&display=swap">
+<style>
+/* Layout: faixas de largura total alternando noite / verde / creme, grade de colunas com fios finos, wordmark expandido no topo e logo da marca no rodapé */
+:root{
+  --ink:#0c0c0a;
+  --night:#11140f;
+  --cream:#efe7ce;
+  --cream-2:#e6dcbf;
+  --green:#417047;
+  --green-deep:#16261b;
+  --green-glow:#6aa268;
+  --terra:#a84f22;
+  --terra-soft:#d98c5b;
+  --brown:#2a180c;
+  --line-dark:rgba(239,231,206,.42);
+  --line-light:rgba(12,12,10,.16);
+  --f-display:"Archivo","Arial Black","Helvetica Neue",Arial,sans-serif;
+  --f-sans:"Alexandria","Helvetica Neue",Arial,sans-serif;
+  --gut-l:max(clamp(24px, 5.5vw, 88px), env(safe-area-inset-left, 0px));
+  --gut-r:max(clamp(24px, 5.5vw, 88px), env(safe-area-inset-right, 0px));
+  --sec:clamp(80px, 10vw, 140px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--ink);color:var(--cream);font-family:var(--f-sans);font-weight:300;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,h4{margin:0;font-weight:300;text-wrap:balance;line-height:1.08}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+figure{margin:0}
+.wrap{padding-left:var(--gut-l);padding-right:var(--gut-r)}
+.inner{max-width:1280px;margin:0 auto;width:100%}
+.label{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;line-height:1.4}
+.h-sec{font-size:clamp(34px,4.8vw,68px);text-transform:uppercase;letter-spacing:-.005em;line-height:1.1}
+.star{display:inline-block;width:.9em;height:.9em;flex:none;background:currentColor;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,0 58,9.79 69.13,3.81 72.78,15.91 85.36,14.64 84.09,27.22 96.19,30.87 90.21,42 100,50 90.21,58 96.19,69.13 84.09,72.78 85.36,85.36 72.78,84.09 69.13,96.19 58,90.21 50,100 42,90.21 30.87,96.19 27.22,84.09 14.64,85.36 15.91,72.78 3.81,69.13 9.79,58 0,50 9.79,42 3.81,30.87 15.91,27.22 14.64,14.64 27.22,15.91 30.87,3.81 42,9.79'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,0 58,9.79 69.13,3.81 72.78,15.91 85.36,14.64 84.09,27.22 96.19,30.87 90.21,42 100,50 90.21,58 96.19,69.13 84.09,72.78 85.36,85.36 72.78,84.09 69.13,96.19 58,90.21 50,100 42,90.21 30.87,96.19 27.22,84.09 14.64,85.36 15.91,72.78 3.81,69.13 9.79,58 0,50 9.79,42 3.81,30.87 15.91,27.22 14.64,14.64 27.22,15.91 30.87,3.81 42,9.79'/%3E%3C/svg%3E") center/contain no-repeat}
+.eyebrow{display:inline-flex;align-items:center;gap:8px}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.14;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+:focus-visible{outline:2px solid var(--terra-soft);outline-offset:3px}
+
+/* pills */
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:7px 15px;font-size:12px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;line-height:1.2;border:1px solid transparent;transition:background .2s,color .2s,border-color .2s;white-space:nowrap}
+.pill-cream{background:var(--cream);color:var(--ink)}
+.pill-cream:hover{background:var(--terra);color:var(--cream)}
+.pill-green{background:var(--green);color:var(--cream);border-color:var(--cream)}
+.pill-green:hover{background:var(--cream);color:var(--green)}
+.pill-line{border-color:currentColor;color:inherit}
+.pill-line:hover{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.on-light .pill-line:hover{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.pill-lg{padding:13px 24px;font-size:13px}
+
+/* header */
+.top{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;padding-block:16px;transition:background .3s,padding .3s}
+.top.solid{background:rgba(12,12,10,.92);backdrop-filter:blur(8px);padding-block:12px}
+.top .inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;text-decoration:none;flex:none}
+.brand img{height:26px;width:auto}
+.menu{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.menu-toggle{display:none}
+@media (max-width:960px){
+  .menu{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:10px;background:var(--ink);padding:16px var(--gut-r) 24px var(--gut-l);border-top:1px solid var(--line-dark)}
+  .menu.open{display:flex}
+  .menu .pill{font-size:14px;padding:10px 18px}
+  .menu-toggle{display:inline-flex;cursor:pointer;font-family:inherit}
+}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:#050505;padding-block:clamp(150px,20vw,240px) clamp(120px,15vw,190px)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero .cols{position:absolute;inset:0 0 48px;display:grid;grid-template-columns:repeat(4,1fr);pointer-events:none}
+.hero .cols span{border-left:1px solid var(--line-dark)}
+.hero .cols span:first-child{border-left:0}
+.hero-copy{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px}
+.hero-mark{display:flex;flex-direction:column;align-items:center;max-width:100%}
+.hero-mark .label{margin-bottom:12px;font-weight:600;gap:8px;display:flex;align-items:center}
+.hero-mark .label .star{color:var(--green-glow)}
+.wordmark{font-family:var(--f-display);font-weight:800;font-stretch:125%;font-variation-settings:"wdth" 125;text-transform:uppercase;letter-spacing:-.015em;line-height:1;color:var(--cream);padding-top:.08em}
+.focus-title{font-family:var(--f-display);font-weight:800;font-stretch:110%;font-variation-settings:"wdth" 110;text-transform:uppercase;letter-spacing:-.01em;line-height:1.06;color:var(--cream);font-size:clamp(28px,6vw,92px);text-align:center;align-self:center;max-width:min(100%,20ch);margin-inline:auto;text-wrap:balance}
+.focus-title .blur{filter:blur(.03em);opacity:.78}
+.focus-title .sharp{position:relative;display:inline-block;padding:.02em .1em}
+.focus-title .sharp::after{content:"";position:absolute;inset:-.04em -.02em;pointer-events:none;--b:.045em;--l:.26em;color:var(--green-glow);
+  background:linear-gradient(currentColor,currentColor) 0 0/var(--l) var(--b),linear-gradient(currentColor,currentColor) 0 0/var(--b) var(--l),
+  linear-gradient(currentColor,currentColor) 100% 0/var(--l) var(--b),linear-gradient(currentColor,currentColor) 100% 0/var(--b) var(--l),
+  linear-gradient(currentColor,currentColor) 0 100%/var(--l) var(--b),linear-gradient(currentColor,currentColor) 0 100%/var(--b) var(--l),
+  linear-gradient(currentColor,currentColor) 100% 100%/var(--l) var(--b),linear-gradient(currentColor,currentColor) 100% 100%/var(--b) var(--l);
+  background-repeat:no-repeat}
+.anim .focus-title{animation:titleIn 1s .15s cubic-bezier(.2,.7,.2,1) both}
+.anim .focus-title .blur{animation:blurOut 1.3s 1.7s ease-in-out both}
+.anim .focus-title .sharp::after{animation:frameIn 1s 2.3s cubic-bezier(.2,.7,.2,1) both}
+@keyframes titleIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes blurOut{from{filter:blur(0);opacity:1}to{filter:blur(.03em);opacity:.78}}
+@keyframes frameIn{from{opacity:0;transform:scale(1.12)}to{opacity:1;transform:none}}
+.hero-sub{max-width:48ch;font-size:clamp(16px,1.6vw,19px);color:rgba(239,231,206,.86)}
+.hero-sub b{font-weight:600;color:var(--cream)}
+.hero-ctas{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.hero-foot{position:absolute;left:0;right:0;bottom:0;padding-block:16px;font-size:11px;border-top:1px solid var(--line-dark)}
+.hero-foot .inner{display:flex;justify-content:space-between;gap:16px;color:rgba(239,231,206,.72)}
+
+/* animações de entrada (só com JS ativo e sem "reduzir movimento") */
+main{overflow-x:clip}
+.anim [data-reveal]{opacity:0;transition:opacity .9s cubic-bezier(.2,.7,.2,1) var(--d,0s),transform 1.05s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.anim [data-reveal="up"]{transform:translateY(48px)}
+.anim [data-reveal="down"]{transform:translateY(-40px)}
+.anim [data-reveal="left"]{transform:translateX(-60px)}
+.anim [data-reveal="right"]{transform:translateX(60px)}
+.anim [data-reveal="zoom"]{transform:scale(.9)}
+.anim [data-reveal="spin"]{transform:rotate(-120deg) scale(.5)}
+.anim [data-reveal].in{opacity:1;transform:none}
+.count{font-variant-numeric:tabular-nums}
+
+/* sobre */
+.about{position:relative;overflow:hidden;padding-block:var(--sec);background:radial-gradient(120% 90% at 85% 120%, var(--green-glow) 0%, #2d5434 38%, var(--green-deep) 70%, #0d1610 100%)}
+.about .inner{position:relative;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:start}
+.about h2{grid-column:1/-1;font-size:clamp(32px,5vw,70px);text-transform:uppercase;max-width:20ch;line-height:1.04}
+.about-text{display:grid;gap:18px;max-width:62ch;font-size:17px;color:rgba(239,231,206,.9);border-top:1px solid var(--line-dark);padding-top:22px}
+.about-text strong{font-weight:600;color:var(--cream)}
+.about-side{display:grid;gap:32px}
+.stat{display:flex;align-items:flex-end;gap:16px;border-top:1px solid var(--line-dark);padding-top:22px}
+.stat b{font-family:var(--f-display);font-weight:800;font-variation-settings:"wdth" 125;font-size:clamp(56px,7vw,96px);line-height:.85}
+.stat span{font-size:13px;text-transform:uppercase;letter-spacing:.08em;font-weight:500;line-height:1.35;padding-bottom:4px}
+.principles li{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:16px 0;border-top:1px solid var(--line-dark);font-size:18px;font-weight:400;line-height:1.35}
+.principles li:last-child{border-bottom:1px solid var(--line-dark)}
+.principles small{font-size:12px;font-weight:500;letter-spacing:.08em;color:var(--terra-soft);padding-top:3px}
+
+/* serviços */
+.services{background:var(--cream);color:var(--ink)}
+.services .inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,3fr)}
+.services-head{padding-block:var(--sec);padding-right:clamp(24px,3vw,48px);border-right:1px solid var(--line-light);display:flex;flex-direction:column;justify-content:flex-start;gap:22px}
+.services-head .h-sec{font-size:clamp(32px,3.6vw,52px)}
+.services-head p{font-size:15px;max-width:34ch}
+.services-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;padding-block:var(--sec);padding-left:clamp(24px,4vw,64px)}
+.svc{display:grid;align-content:start;gap:12px;font-size:14.5px;line-height:1.55;padding:28px clamp(16px,2vw,28px) 32px 0;border-top:1px solid var(--line-light)}
+.svc .n{font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(12,12,10,.5)}
+.svc h3{font-size:19px;font-weight:600;color:var(--terra);line-height:1.25}
+.svc .inc{color:rgba(12,12,10,.72)}
+.svc .inc b{font-weight:600;color:var(--ink)}
+.svc-cta{align-content:start;gap:20px}
+.svc-cta p{font-size:17px;font-weight:500;max-width:24ch;line-height:1.35}
+.svc-cta .pill{justify-self:start}
+
+/* manifesto swirl */
+.swirl{position:relative;overflow:hidden;background:var(--brown);padding-block:var(--sec)}
+.swirl canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.swirl .inner{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+.swirl .eyebrow{grid-column:1/-1}
+.swirl-word{font-size:clamp(44px,6vw,84px);font-weight:300;letter-spacing:-.01em;color:#f3e8cc;text-shadow:0 2px 30px rgba(0,0,0,.5);text-align:center}
+.swirl-text{display:grid;gap:20px;max-width:56ch;font-size:16px;color:#f3e8cc;text-shadow:0 1px 14px rgba(0,0,0,.6)}
+.swirl-text strong{font-weight:600}
+
+/* método */
+.method{background:var(--night);padding-block:var(--sec)}
+.method .inner{display:grid;gap:clamp(48px,6vw,80px)}
+.method .inner > *{min-width:0}
+.method-head{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:end}
+.method-head .h-sec{margin-top:16px}
+.method-head .h-sec em{font-style:normal;color:var(--terra-soft)}
+.method-pick{display:grid;gap:20px}
+.method-pick p{color:rgba(239,231,206,.75);max-width:42ch}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{appearance:none;font-family:inherit;font-size:14px;font-weight:500;color:var(--cream);background:transparent;border:1px solid var(--line-dark);border-radius:999px;padding:10px 18px;cursor:pointer;display:inline-flex;align-items:baseline;gap:8px;transition:background .2s,color .2s,border-color .2s}
+.tab small{font-size:10.5px;font-weight:600;letter-spacing:.08em;opacity:.65}
+.tab:hover{border-color:var(--cream)}
+.tab[aria-selected="true"]{background:var(--terra-soft);border-color:var(--terra-soft);color:var(--ink)}
+.tab[aria-selected="true"] small{opacity:.8}
+.panel{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:start;border-top:1px solid var(--line-dark);padding-top:36px}
+.panel h3{font-size:clamp(28px,3.8vw,56px);text-transform:uppercase;color:var(--terra-soft);line-height:1.08}
+.panel p{font-size:clamp(18px,1.8vw,22px);line-height:1.5;max-width:40ch}
+.help{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);background:var(--cream);color:var(--ink);padding:clamp(28px,4vw,56px)}
+.help h3{font-size:clamp(26px,3vw,40px);text-transform:uppercase;margin-bottom:18px}
+.help p{max-width:52ch}
+.help h4{font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin:28px 0 8px;color:var(--terra)}
+.pillars .label{color:var(--terra);margin-bottom:6px}
+.pillar-list li{border-top:1px solid var(--line-light)}
+.pillar-list li:last-child{border-bottom:1px solid var(--line-light)}
+.pillar{appearance:none;background:none;border:0;width:100%;font:inherit;color:var(--ink);text-align:left;cursor:pointer;display:grid;grid-template-columns:40px 1fr 22px;gap:10px;align-items:baseline;padding:16px 0;font-size:17px;font-weight:500;line-height:1.35}
+.pillar small{font-size:11px;font-weight:600;letter-spacing:.1em;color:rgba(12,12,10,.5)}
+.pillar i{position:relative;width:14px;height:14px;align-self:center;justify-self:end}
+.pillar i::before,.pillar i::after{content:"";position:absolute;left:0;right:0;top:6px;height:2px;background:var(--terra);transition:transform .25s}
+.pillar i::after{transform:rotate(90deg)}
+.pillar[aria-expanded="true"] i::after{transform:rotate(0)}
+.pillar:hover span{color:var(--terra)}
+.pillar-desc{padding:0 0 18px 50px;font-size:15px;line-height:1.55;color:rgba(12,12,10,.75);max-width:48ch}
+
+/* statement */
+.statement{background:var(--cream);color:var(--ink);padding-block:clamp(100px,13vw,190px);border-top:1px solid var(--line-light)}
+.statement .inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end}
+.statement p{font-size:clamp(34px,5.8vw,86px);text-transform:uppercase;line-height:1.04;max-width:17ch;letter-spacing:-.01em;text-wrap:balance}
+.statement .star{width:clamp(56px,8vw,120px);height:clamp(56px,8vw,120px);color:var(--green)}
+
+/* clientes */
+.clients{background:var(--green);color:var(--cream);padding-block:clamp(64px,7vw,104px)}
+.clients .inner{display:grid;gap:clamp(28px,3vw,44px)}
+.clients h2.h-sec{font-size:clamp(32px,4vw,56px)}
+.client-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(239,231,206,.45);border-bottom:1px solid rgba(239,231,206,.45)}
+.client-row li{display:flex;align-items:center;justify-content:center;min-height:clamp(140px,14vw,200px);padding:20px;border-left:1px solid rgba(239,231,206,.45);text-align:center}
+.client-row li:first-child{border-left:0}
+.client-row img{max-height:80px;max-width:100%;width:auto;filter:brightness(0) invert(1)}
+.logo-slot{font-weight:600;font-size:clamp(19px,2vw,28px);line-height:1.1;color:var(--cream)}
+.logo-slot small{display:block;font-size:.52em;font-weight:500;letter-spacing:.18em;text-transform:uppercase;margin-top:5px;opacity:.85}
+
+/* branding */
+.branding{background:var(--cream);color:var(--ink);padding-block:var(--sec)}
+.branding > .inner{display:grid;gap:clamp(64px,8vw,112px)}
+.brand-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:start}
+.brand-intro .h-sec{margin-top:16px;font-size:clamp(34px,4.6vw,64px)}
+.brand-intro .h-sec em,.ident .h-sec em{font-style:normal;color:var(--terra)}
+.brand-intro .body{display:grid;gap:16px;max-width:60ch}
+.brand-intro .pill{justify-self:start;margin-top:8px}
+.skills{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(32px,5vw,80px);border-top:1px solid var(--line-light);padding-top:clamp(48px,6vw,88px)}
+.skills h3{font-size:clamp(28px,3vw,42px);text-transform:uppercase;margin:14px 0 18px}
+.skills > div > p{max-width:40ch}
+.skills-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,3vw,48px);align-content:start}
+.skills-list li{padding:22px 0;border-top:1px solid var(--line-light);display:grid;gap:6px;align-content:start}
+.skills-list h4{font-size:17px;font-weight:600;color:var(--terra);line-height:1.3}
+.skills-list p{font-size:14.5px;color:rgba(12,12,10,.74)}
+
+/* identidade verbal e visual */
+.ident{position:relative;overflow:hidden;background:linear-gradient(160deg,#24150a 0%,#43291a 55%,#76502f 100%);color:var(--cream);padding-block:var(--sec)}
+.ident .inner{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(40px,6vw,96px);align-items:center}
+.ident .h-sec{margin:16px 0 28px;font-size:clamp(34px,4.6vw,64px)}
+.ident .h-sec em{color:var(--terra-soft)}
+.ident .body{display:grid;gap:18px;max-width:58ch;color:rgba(239,231,206,.88)}
+.ident .body b{font-weight:600;color:var(--cream)}
+.layer-fig{display:grid;gap:18px;justify-items:center}
+.layer-fig svg{width:100%;max-width:560px;height:auto;padding:clamp(8px,2vw,24px);overflow:visible}
+.layer-fig figcaption{font-size:13px;color:rgba(239,231,206,.7);text-align:center}
+.layer-legend{display:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;font-size:13.5px;width:100%;max-width:560px;border-top:1px solid var(--line-dark);padding-top:18px;color:rgba(239,231,206,.86)}
+.layer-legend b{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--terra-soft);margin-bottom:4px}
+
+/* portfólio em destaque: moodboards */
+.defs{position:absolute;width:0;height:0;overflow:hidden}
+.work{padding-block:clamp(64px,8vw,112px)}
+.work-head{margin-bottom:clamp(20px,2.4vw,32px)}
+.work-head .meta{font-size:clamp(13px,1.2vw,15px);font-weight:500;letter-spacing:.08em;text-transform:uppercase;word-spacing:.15em;line-height:1.5}
+.mood{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(6px,.8vw,12px)}
+.t{position:relative;overflow:hidden;margin:0;display:flex;align-items:center;justify-content:center;min-width:0;aspect-ratio:16/10;background:#1a1a18}
+.t-a{grid-column:1/3;grid-row:1/3;aspect-ratio:auto}
+.t .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.t:hover .ph{transform:scale(1.035)}
+.t .ph.fit{object-fit:contain}
+.t-or{background:#f66300}
+.t-w{grid-column:span 2;aspect-ratio:auto}
+.t figcaption{position:absolute;left:12px;bottom:10px;font-size:10.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;opacity:.75;line-height:1.2}
+.lg{display:block;fill:currentColor;overflow:visible}
+.lg-big{width:min(70%,560px);height:auto;position:relative}
+.t-big img{width:min(100%,440px);position:relative}
+.lg-crop{height:70%;width:auto;max-width:86%}
+.lg-inv{width:74%;height:auto}
+.pat{position:absolute;inset:0;width:100%;height:100%}
+.swatches{display:flex;width:100%;height:100%}
+.swatches li{flex:1;background:var(--c);color:var(--tc);display:flex;flex-direction:column;justify-content:flex-end;padding:12px;gap:2px;font-size:12.5px;font-weight:500;min-width:0}
+.swatches code{font-family:inherit;font-size:11px;font-weight:400;opacity:.8}
+.t-pal figcaption{display:none}
+.card{position:absolute;width:64%;aspect-ratio:1.75;border-radius:3px;box-shadow:0 14px 28px rgba(0,0,0,.35)}
+.c-back{transform:translate(14%,-16%) rotate(9deg)}
+.c-front{transform:translate(-8%,10%) rotate(-7deg);display:flex;align-items:center;justify-content:center}
+.lg-card{width:64%;height:auto}
+.m-gatti{background:#0c0c0a;color:var(--cream)}
+.m-gatti .t-big{background:radial-gradient(70% 80% at 50% 45%,#262421 0%,#161616 70%);color:#d0a970}
+.m-gatti .t-crop{background:#d0a970;color:#161616}
+.m-gatti .t-inv{background:var(--cream);color:#161616}
+.m-gatti .t-pat{background:#161616;color:rgba(208,169,112,.3)}
+.m-gatti .t-card{background:#3a352e}
+.m-gatti .c-back{background:#d0a970}
+.m-gatti .c-front{background:#161616;color:#d0a970}
+.m-zero{background:#e9e6dc;color:var(--ink)}
+.m-zero .t-big{background:linear-gradient(162deg,transparent 78%,rgba(8,30,122,.9) 78.6%,transparent 80%),repeating-linear-gradient(162deg,#040402 0 38px,#1d1d1b 38px 44px,#040402 44px 60px);color:#f7f6e6}
+.m-zero .t-crop{background:#f7f6e6;color:#040402}
+.m-zero .t-inv{background:#081e7a;color:#f7f6e6}
+.m-zero .t-pat{background:#040402;color:rgba(247,246,230,.24)}
+.m-zero .t-card{background:#cfcabb}
+.m-zero .c-back{background:#f7f6e6}
+.m-zero .c-front{background:#040402;color:#f7f6e6}
+.m-educare{background:#121210;color:var(--cream)}
+.m-educare .t-big{background:#f66300}
+.m-educare .t-crop{background:#f66300;color:#fff;--lg-accent:#fbb035}
+.m-educare .t-inv{background:#fff;color:#f66300;--lg-accent:#fbb035}
+.m-educare .t-pat{background:#f66300;color:rgba(255,255,255,.26);--lg-accent:rgba(251,176,53,.5)}
+.m-educare .t-card{background:#2b2a27}
+.m-educare .c-back{background:#fff}
+.m-educare .c-front{background:#f66300;color:#fff;--lg-accent:#fbb035}
+.m-zero .t figcaption,.m-gatti .t-inv figcaption{opacity:.7}
+
+/* marcas do portfólio */
+.brands{background:var(--cream);color:var(--ink);padding-block:var(--sec) 0}
+.brands .inner{display:grid;gap:40px}
+.brands-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:end}
+.brands-head p{justify-self:end;text-align:right;max-width:36ch;font-size:15px}
+.logo-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line-light);border:1px solid var(--line-light)}
+.logo-grid li{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--cream-2);outline:none}
+.logo-grid img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:filter .45s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.logo-grid li:hover img,.logo-grid li:focus-visible img,.logo-grid li.on img{filter:none;transform:scale(1.04)}
+.logo-grid li:focus-visible{outline:2px solid var(--terra);outline-offset:-2px}
+.brands-cta{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-block:44px clamp(56px,7vw,96px)}
+.brands-cta p{font-size:clamp(22px,2.6vw,34px);text-transform:uppercase;line-height:1.15}
+.brands-cta p em{font-style:normal;color:var(--terra)}
+
+/* contato */
+.contact{position:relative;overflow:hidden;background:radial-gradient(90% 100% at 10% 110%, #2c4d33 0%, #172a1d 40%, #0c0c0a 85%);padding-block:var(--sec)}
+.contact .inner{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(40px,6vw,96px)}
+.contact h2{font-size:clamp(48px,6.4vw,96px);text-transform:uppercase;margin:14px 0 22px;line-height:1}
+.contact .lead{font-size:18px;max-width:30ch;color:rgba(239,231,206,.86)}
+.contact .eyebrow .star{color:var(--green-glow)}
+.channels{display:grid;margin-top:36px;max-width:420px}
+.channels a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 0;border-top:1px solid var(--line-dark);text-decoration:none;transition:color .2s}
+.channels a:last-child{border-bottom:1px solid var(--line-dark)}
+.channels a:hover{color:var(--terra-soft)}
+.channels b{font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.channels span{font-size:18px;font-variant-numeric:tabular-nums}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 24px;align-content:start}
+.field{display:grid;gap:4px;min-width:0}
+.field.full{grid-column:1/-1}
+.field label{font-size:13px;font-weight:400}
+.field input,.field select{font:inherit;font-size:17px;color:var(--cream);background:transparent;border:0;border-bottom:1px solid var(--line-dark);padding:10px 0;border-radius:0;outline:none;width:100%;appearance:none}
+.field select{background-image:linear-gradient(45deg,transparent 50%,var(--cream) 50%),linear-gradient(135deg,var(--cream) 50%,transparent 50%);background-position:calc(100% - 12px) 55%,calc(100% - 7px) 55%;background-size:5px 5px;background-repeat:no-repeat;cursor:pointer;padding-right:24px}
+.field select option{background:var(--ink);color:var(--cream)}
+.field input:focus,.field select:focus{border-bottom-color:var(--terra-soft)}
+.field .err{font-size:12px;color:var(--terra-soft);min-height:1.2em}
+.form-note{grid-column:1/-1;font-size:14px;color:rgba(239,231,206,.72);max-width:52ch}
+.form-actions{grid-column:1/-1;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+
+/* footer */
+.foot{background:var(--cream);color:var(--ink);padding-block:clamp(48px,5vw,72px) 20px}
+.foot .inner{display:grid;gap:clamp(48px,6vw,80px)}
+.foot-row{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start}
+.foot-row > p{max-width:30ch;font-size:15px}
+.foot-links{display:grid;grid-template-columns:repeat(2,minmax(0,max-content));gap:6px 32px;font-size:14px}
+.foot-links a,.foot-contact a{text-decoration:none}
+.foot-links a:hover,.foot-contact a:hover{color:var(--terra)}
+.foot-contact{display:grid;gap:6px;font-size:14px;font-variant-numeric:tabular-nums}
+.foot-logo img{width:100%}
+.foot-legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;border-top:1px solid var(--line-light);padding-top:16px}
+
+/* responsivo */
+@media (max-width:1080px){
+  .services .inner{grid-template-columns:1fr}
+  .services-head{border-right:0;padding-right:0;padding-block:var(--sec) 40px}
+  .services-grid{padding-left:0;padding-block:0 var(--sec);grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:900px){
+  .client-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .client-row li:nth-child(odd){border-left:0}
+  .client-row li{min-height:140px}
+  .client-row li:nth-child(n+3){border-top:1px solid rgba(239,231,206,.45)}
+  .method-head,.panel,.help,.brand-intro,.skills,.ident .inner,.contact .inner,.about .inner,.swirl .inner{grid-template-columns:1fr}
+  .logo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .foot-row{grid-template-columns:1fr 1fr}
+  .foot-row > p{grid-column:1/-1}
+}
+@media (max-width:640px){
+  .hero-mark .label .star{display:none}
+  .hero-mark .label{text-align:center;justify-content:center}
+  .focus-title{font-size:clamp(22px,7.2vw,40px);font-stretch:100%;font-variation-settings:"wdth" 100;max-width:none}
+  .mood{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .t-a{grid-column:1/-1;grid-row:auto;aspect-ratio:16/10}
+  .t-f{grid-column:1/-1;aspect-ratio:16/7}
+  .t-w{aspect-ratio:16/9}
+  .layer-legend{display:grid}
+  .services-grid,.skills-list,.layer-legend{grid-template-columns:1fr}
+  .brands-head{grid-template-columns:1fr}
+  .brands-head p{justify-self:start;text-align:left}
+  .tab{padding:9px 15px;font-size:13.5px}
+  .logo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  form{grid-template-columns:1fr}
+  .foot-row{grid-template-columns:1fr}
+  .hero .cols{grid-template-columns:repeat(2,1fr)}
+  .hero .cols span:nth-child(n+3){display:none}
+  .hero-foot .inner span:last-child{display:none}
+  .statement .inner{grid-template-columns:1fr}
+  .statement .star{order:-1}
+  .help{padding:28px 20px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+<link rel="icon" type="image/svg+xml" href="assets/logo/selo.svg">
+<meta property="og:title" content="Response Agência">
+<meta property="og:description" content="Branding, performance e estratégia para marcas que querem crescer com propósito e impacto.">
+<meta property="og:image" content="assets/moodboard/gatti-tapume.jpg">
+<meta property="og:locale" content="pt_BR">
+<style>:root{color-scheme:dark}html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<script>try{if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('anim')}}catch(e){}</script>
+<header class="top wrap" id="top">
+  <div class="inner">
+    <a class="brand" href="#inicio" aria-label="Response Agência, início">
+      <img src="assets/logo/response-ag-branco-web.png" alt="response.ag" width="1400" height="235">
+    </a>
+    <button class="pill pill-cream menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav class="menu" id="menu" aria-label="Principal">
+      <a class="pill pill-cream" href="#sobre">A Response</a>
+      <a class="pill pill-cream" href="#servicos">Serviços</a>
+      <a class="pill pill-cream" href="#metodo">Método</a>
+      <a class="pill pill-cream" href="#clientes">Clientes</a>
+      <a class="pill pill-cream" href="#branding">Branding</a>
+      <a class="pill pill-cream" href="#portfolio">Portfólio</a>
+      <a class="pill pill-green" href="#contato">Vamos conversar</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero wrap" id="inicio">
+    <canvas id="trails" aria-hidden="true"></canvas>
+    <div class="cols" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="inner hero-copy">
+      <div class="hero-mark">
+        <span class="label"><span class="star" aria-hidden="true"></span>Branding, performance e estratégia</span>
+        <h1 class="focus-title"><span class="blur">Nossa responsabilidade é focar na sua</span> <span class="sharp">empresa</span></h1>
+      </div>
+      <p class="hero-sub"><b>Response Agência.</b> A resposta certa para sua marca crescer com propósito e impacto. Uma agência que pensa antes de executar.</p>
+      <div class="hero-ctas">
+        <a class="pill pill-green pill-lg" href="#contato">Vamos conversar</a>
+        <a class="pill pill-line pill-lg" href="#portfolio">Conheça nossos projetos</a>
+      </div>
+    </div>
+    <div class="hero-foot wrap label"><div class="inner"><span>+15 anos de marketing</span><span>Umuarama · Paraná</span></div></div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="about wrap" id="sobre">
+    <div class="grain"></div>
+    <div class="inner">
+      <h2>No caos do mercado, onde todo mundo “faz marketing”, escolhemos fazer diferente.</h2>
+      <div class="about-text">
+        <p>Cada negócio possui suas próprias necessidades e desafios. Por isso, nossa abordagem é totalmente personalizada, feita sob medida para atender às demandas específicas da sua empresa. Nosso objetivo é ajudar sua marca a alcançar um público mais amplo, aumentar o reconhecimento no mercado e, consequentemente, impulsionar as vendas.</p>
+        <p>Para isso, aplicamos uma estratégia integrada e multicanal, combinando ações online e offline para maximizar o impacto da sua marca na percepção das pessoas.</p>
+        <p>Com a nossa equipe ao seu lado, você pode ter a certeza de que estaremos trabalhando com <strong>foco total nos seus objetivos de negócio.</strong></p>
+      </div>
+      <div class="about-side">
+        <div class="stat"><b class="count" data-count="15" data-prefix="+">+15</b><span>anos de vivência<br>no marketing</span></div>
+        <ol class="principles" aria-label="Como trabalhamos">
+          <li><small>01</small>Escolhemos ouvir antes de falar.</li>
+          <li><small>02</small>Planejar antes de criar.</li>
+          <li><small>03</small>Pensar no cliente do nosso cliente.</li>
+          <li><small>04</small>Pensar no agora e no depois.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="services wrap on-light" id="servicos">
+    <div class="inner">
+      <div class="services-head">
+        <h2 class="h-sec">Nossos<br>serviços</h2>
+        <p>Nossa equipe conta com mais de 15 anos de mercado, com experiência publicitária, assessoria de mídia e desenvolvimento de projetos multidisciplinares com o intuito de resolver desafios das marcas.</p>
+      </div>
+      <div class="services-grid">
+        <article class="svc">
+          <span class="n">01</span>
+          <h3>Planejamento de Marketing</h3>
+          <p>Desenhamos um plano estratégico personalizado, entendendo seu mercado, público e concorrência. Assim, sua marca sabe exatamente onde quer chegar e como chegar lá.</p>
+          <p class="inc"><b>Inclui:</b> estudo de mercado, definição de metas, calendário de ações e acompanhamento de performance.</p>
+        </article>
+        <article class="svc">
+          <span class="n">02</span>
+          <h3>Assessoria de Marketing</h3>
+          <p>Atuamos como o departamento de marketing da sua empresa, cuidando de todas as demandas do dia a dia.</p>
+          <p class="inc"><b>Inclui:</b> gestão de redes sociais, campanhas, materiais gráficos, suporte em eventos e relacionamento com clientes.</p>
+        </article>
+        <article class="svc">
+          <span class="n">03</span>
+          <h3>Mídia Paga</h3>
+          <p>Anúncios inteligentes que convertem, com segmentação precisa e gestão constante do investimento para gerar o melhor retorno.</p>
+          <p class="inc"><b>Inclui:</b> campanhas no Google, Facebook e Instagram, com relatórios mensais.</p>
+        </article>
+        <article class="svc">
+          <span class="n">04</span>
+          <h3>Criação de Identidade de Marca</h3>
+          <p>Desenvolvemos marcas que comunicam essência, propósito e profissionalismo, criando conexão imediata com o público.</p>
+          <p class="inc"><b>Inclui:</b> branding, logotipo, paleta de cores, tipografia, aplicações e manual de uso.</p>
+        </article>
+        <article class="svc">
+          <span class="n">05</span>
+          <h3>Criação de Conteúdos e Criativos</h3>
+          <p>Conteúdo estratégico e criativo para atrair, engajar e vender.</p>
+          <p class="inc"><b>Inclui:</b> textos persuasivos, fotos, vídeos, artes gráficas, roteiros e criativos para campanhas de anúncios.</p>
+        </article>
+        <div class="svc svc-cta">
+          <p>Não sabe por onde começar? A gente ouve antes de propor.</p>
+          <a class="pill pill-line pill-lg" href="#contato">Vamos conversar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="swirl wrap" aria-labelledby="manifesto">
+    <canvas id="swirl" aria-hidden="true"></canvas>
+    <div class="inner">
+      <span class="label eyebrow">A Response</span>
+      <h2 class="swirl-word" id="manifesto">a response.ag</h2>
+      <div class="swirl-text">
+        <p>Nos posicionamos como uma agência que pensa antes de executar, com foco em <strong>branding, performance e crescimento sustentável</strong>. Diferente da promessa rasa de “mais likes”, entregamos inteligência aplicada, cultura de resultado e estratégia criativa sob medida.</p>
+        <p>São mais de 15 anos de vivência no marketing, combinando inteligência estratégica e criatividade moderna para transformar marcas em potências de mercado.</p>
+        <p>Acreditamos que boas ideias não nascem de achismos, mas de estratégia. Que marcas fortes não se constroem só com likes, mas com <strong>coerência, propósito e performance.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTODO -->
+  <section class="method wrap" id="metodo">
+    <div class="inner">
+      <div class="method-head">
+        <div>
+          <span class="label" style="color:var(--terra-soft)">Método</span>
+          <h2 class="h-sec">Como funciona o <em>marketing bem feito</em> de um negócio</h2>
+        </div>
+        <div class="method-pick">
+          <p>Cinco fundamentos que se conectam. Selecione cada um para entender o papel que ele cumpre na sua marca.</p>
+          <div class="tabs" role="tablist" aria-label="Fundamentos">
+            <button class="tab" role="tab" id="t0" aria-selected="true" aria-controls="fund"><small>01</small>Consistência</button>
+            <button class="tab" role="tab" id="t1" aria-selected="false" aria-controls="fund" tabindex="-1"><small>02</small>Essência</button>
+            <button class="tab" role="tab" id="t2" aria-selected="false" aria-controls="fund" tabindex="-1"><small>03</small>Estratégia</button>
+            <button class="tab" role="tab" id="t3" aria-selected="false" aria-controls="fund" tabindex="-1"><small>04</small>Coerência</button>
+            <button class="tab" role="tab" id="t4" aria-selected="false" aria-controls="fund" tabindex="-1"><small>05</small>Posicionamento</button>
+          </div>
+        </div>
+      </div>
+      <div class="panel" id="fund" role="tabpanel" aria-labelledby="t0">
+        <h3 id="fundTitle">Consistência</h3>
+        <p id="fundText">É uma construção dia a dia, paciente do seu negócio. As coisas não acontecem de um dia para o outro, sempre é de médio a longo prazo que os resultados aparecem. Consistência é a sua base.</p>
+      </div>
+      <div class="help">
+        <div>
+          <h3>Como vamos ajudar sua marca a crescer</h3>
+          <p>Na Response, acreditamos que marketing de verdade é aquele que traz resultados e constrói marcas sólidas. Nossa missão é ser a resposta para empresas que buscam mais do que campanhas bonitas: buscamos estratégia, consistência e crescimento real.</p>
+          <h4>O que fazemos por você</h4>
+          <p>Transformamos ideias em ações, ações em resultados e resultados em novas oportunidades de crescimento.</p>
+        </div>
+        <div class="pillars">
+          <p class="label">Nossos pilares</p>
+          <ul class="pillar-list">
+            <li><button class="pillar" id="pb0" aria-expanded="true" aria-controls="pd0"><small>01</small><span>Estratégia bem definida</span><i aria-hidden="true"></i></button><p class="pillar-desc" id="pd0">Antes de qualquer peça, estudamos mercado, público e concorrência para definir metas claras e o caminho até elas.</p></li>
+            <li><button class="pillar" id="pb1" aria-expanded="false" aria-controls="pd1"><small>02</small><span>Execução profissional</span><i aria-hidden="true"></i></button><p class="pillar-desc" id="pd1" hidden>Transformamos o planejamento em entregas no prazo, com calendário, produção e publicação feitos por uma equipe com mais de 15 anos de mercado.</p></li>
+            <li><button class="pillar" id="pb2" aria-expanded="false" aria-controls="pd2"><small>03</small><span>Criatividade que vende</span><i aria-hidden="true"></i></button><p class="pillar-desc" id="pd2" hidden>Conteúdos e criativos pensados para atrair, engajar e converter, sempre alinhados à identidade da sua marca.</p></li>
+            <li><button class="pillar" id="pb3" aria-expanded="false" aria-controls="pd3"><small>04</small><span>Monitoramento constante para ajustes rápidos</span><i aria-hidden="true"></i></button><p class="pillar-desc" id="pd3" hidden>Acompanhamos os resultados de perto e ajustamos campanhas e conteúdos rapidamente para melhorar o retorno do investimento.</p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATEMENT -->
+  <section class="statement wrap" aria-label="Manifesto">
+    <div class="inner">
+      <p>Boas ideias não nascem de achismos. Nascem de estratégia.</p>
+      <span class="star" aria-hidden="true"></span>
+    </div>
+  </section>
+
+  <!-- CLIENTES -->
+  <section class="clients wrap" id="clientes" aria-labelledby="clientsTitle">
+    <div class="inner">
+      <h2 class="h-sec" id="clientsTitle">Nossos clientes</h2>
+      <ul class="client-row">
+        <li><span class="logo-slot">Neuroessência<small>Centro</small></span></li>
+        <li><span class="logo-slot">Sobre Braseiro</span></li>
+        <li><span class="logo-slot">Marcato<small>Exclusive Motors</small></span></li>
+        <li><span class="logo-slot">Integral<small>Curso e Colégio</small></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- BRANDING -->
+  <section class="branding wrap on-light" id="branding">
+    <div class="inner">
+      <div class="brand-intro">
+        <div>
+          <span class="label" style="color:var(--terra)">Branding</span>
+          <h2 class="h-sec">A importância de investir em uma <em>marca profissional.</em></h2>
+        </div>
+        <div class="body">
+          <p>Investir em uma marca profissional é crucial para o sucesso de qualquer negócio. Uma identidade visual coesa, marcante e um posicionamento memorável são elementos que podem diferenciar uma empresa em um mercado competitivo, ajudando a estabelecer reconhecimento e fidelidade à marca.</p>
+          <p>Clientes tendem a confiar mais em empresas que apresentam uma imagem profissional e consistente, o que pode resultar em maior retenção de clientes e aumento nas vendas. Por meio de embalagens profissionais, é possível atrair a atenção do público-alvo e transmitir a qualidade e a personalidade do produto.</p>
+          <p>Portanto, investir em uma marca profissional não é apenas uma questão estética, mas uma estratégia essencial para construir um posicionamento sólido no mercado e garantir o crescimento sustentável da empresa.</p>
+          <a class="pill pill-line pill-lg" href="#portfolio">Ver projetos de branding</a>
+        </div>
+      </div>
+
+      <div class="skills">
+        <div>
+          <span class="label" style="color:var(--terra)">O que entregamos</span>
+          <h3>Nossas habilidades</h3>
+          <p>Nossa equipe de design conta com mais de 15 anos de mercado, com experiência publicitária, editorial, branding e desenvolvimento de projetos memoráveis. Um time multidisciplinar com o intuito de resolver desafios de marcas e design thinking.</p>
+        </div>
+        <ul class="skills-list">
+          <li><h4>Design de marcas e identidade visual</h4><p>Criamos logotipos, paletas de cores, tipografias e outros elementos visuais que reflitam a personalidade e os valores da sua empresa.</p></li>
+          <li><h4>Design de embalagens e rótulos</h4><p>Criamos embalagens e rótulos atraentes e funcionais que se destaquem nas prateleiras.</p></li>
+          <li><h4>Identidade verbal e estratégia de marca</h4><p>Elaboramos estratégias e ações para moldar a percepção da sua marca no mercado e na mente dos consumidores.</p></li>
+          <li><h4>Design de material de marketing</h4><p>Criamos materiais consistentes com a identidade visual e a estratégia de marca, como cartões de visita, folhetos, banners e materiais digitais.</p></li>
+          <li><h4>Criação de nome para empresas</h4><p>Naming é o processo de escolha do nome da marca e uma das decisões mais importantes na criação de um negócio.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- IDENTIDADE VERBAL E VISUAL -->
+  <section class="ident wrap" aria-labelledby="identTitle">
+    <div class="grain"></div>
+    <div class="inner">
+      <div>
+        <span class="label eyebrow" style="color:var(--terra-soft)">Camadas do branding</span>
+        <h2 class="h-sec" id="identTitle">Identidade <em>verbal</em> e visual</h2>
+        <div class="body">
+          <p><b>Identidade verbal</b> é a voz e a personalidade da marca. Ela define como a marca pensa, se expressa e se posiciona no mercado. Inclui tom de voz, storytelling, mensagens-chave, vocabulário e narrativas. Uma identidade verbal bem estruturada garante que, em qualquer lugar, a marca soe coerente, confiável e única.</p>
+          <p><b>Identidade visual</b> é a forma como a marca se apresenta ao mundo. Vai muito além de um logotipo: envolve cores, tipografias, formas, ícones, imagens e todo o universo estético que a torna reconhecível.</p>
+          <p>O branding é o conjunto dessas e de outras estratégias que cuidam de como a marca é percebida pelas pessoas. Para isso, a marca precisa tanto de uma forma de se expressar quanto de uma forma de se mostrar.</p>
+        </div>
+      </div>
+      <figure class="layer-fig">
+        <svg viewBox="0 0 680 680" role="img" aria-labelledby="layersTitle" font-family="Alexandria, Helvetica, Arial, sans-serif"><title id="layersTitle">Camadas do branding: no centro a marca; ao redor a identidade visual (cores, ícones, imagens, tipografia, grafismos, pontos de contato e texturas); depois o branding (valores, propósito, mercado, o porquê, arquétipo, personalidade da marca, posicionamento de marketing, golden circle, tom de voz e manifesto); envolvendo tudo, a cultura da marca.</title><defs><marker id="arw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10" fill="none" stroke="#0c0c0a" stroke-width="1.6"/></marker></defs><circle cx="340" cy="340" r="336" fill="#efe7ce"/><path d="M340 41 A299 299 0 0 1 524.1 575.6" fill="none" stroke="#0c0c0a" stroke-width="2" marker-end="url(#arw)"/><path d="M340 41 A299 299 0 0 0 155.9 575.6" fill="none" stroke="#0c0c0a" stroke-width="2" marker-end="url(#arw)"/><path id="cultPath" d="M64.6 499.0 A318 318 0 0 0 615.4 499.0" fill="none"/><text font-size="32" font-weight="600" fill="#0c0c0a" letter-spacing=".5"><textPath href="#cultPath" startOffset="50%" text-anchor="middle">Cultura da Marca</textPath></text><circle cx="340" cy="340" r="262" fill="#a84f22"/><text x="340" y="136" text-anchor="middle" font-family="Archivo, Arial Black, sans-serif" font-weight="800" font-size="30" fill="#efe7ce" style="font-stretch:125%;font-variation-settings:'wdth' 125">BRANDING</text><g text-anchor="middle"><text font-size="14.5" font-weight="600" fill="#efe7ce"><tspan x="213.8" y="183.5">Valores</tspan></text><text font-size="14.5" font-weight="600" fill="#efe7ce"><tspan x="466.2" y="183.5">Propósito</tspan></text><text font-size="14.5" font-weight="600" fill="#efe7ce"><tspan x="147.4" y="275.0">Manifesto</tspan></text><text font-size="14.5" font-weight="600" fill="#efe7ce"><tspan x="532.6" y="275.0">Mercado</tspan></text><text font-size="14.5" font-weight="600" fill="#efe7ce"><tspan x="137.0" y="373.6">Tom de Voz</tspan></text><text font-size="14.5" font-weight="600" fill="#efe7ce"><tspan x="543.0" y="373.6">O porquê</tspan></text><text font-size="14.5" font-weight="600" fill="#efe7ce"><tspan x="176.3" y="459.7">Golden</tspan><tspan x="176.3" y="477.1">Circle</tspan></text><text font-size="14.5" font-weight="600" fill="#efe7ce"><tspan x="503.7" y="468.4">Arquétipo</tspan></text><text font-size="14.5" font-weight="600" fill="#efe7ce"><tspan x="263.2" y="526.4">Posicionamento</tspan><tspan x="263.2" y="543.8">de Marketing</tspan></text><text font-size="14.5" font-weight="600" fill="#efe7ce"><tspan x="416.8" y="526.4">Personalidade</tspan><tspan x="416.8" y="543.8">da Marca</tspan></text></g><circle cx="340" cy="340" r="140" fill="#efe7ce"/><text text-anchor="middle" font-size="18" font-weight="700" fill="#0c0c0a"><tspan x="340.0" y="242.9">IDENTIDADE</tspan><tspan x="340.0" y="261.8">VISUAL</tspan></text><g text-anchor="middle"><text font-size="13" font-weight="600" fill="#0c0c0a"><tspan x="255.2" y="291.6">Cores</tspan></text><text font-size="13" font-weight="600" fill="#0c0c0a"><tspan x="424.8" y="291.6">Ícones</tspan></text><text font-size="13" font-weight="600" fill="#0c0c0a"><tspan x="242.0" y="344.6">Texturas</tspan></text><text font-size="13" font-weight="600" fill="#0c0c0a"><tspan x="438.0" y="344.6">Imagens</tspan></text><text font-size="13" font-weight="600" fill="#0c0c0a"><tspan x="258.1" y="394.1">Pontos de</tspan><tspan x="258.1" y="409.7">Contato</tspan></text><text font-size="13" font-weight="600" fill="#0c0c0a"><tspan x="421.9" y="401.9">Tipografia</tspan></text><text font-size="13" font-weight="600" fill="#0c0c0a"><tspan x="340.0" y="444.6">Grafismos</tspan></text></g><circle cx="340" cy="340" r="58" fill="#0c0c0a"/><polygon fill="#a84f22" transform="translate(298 298) scale(.84)" points="50,0 58,9.79 69.13,3.81 72.78,15.91 85.36,14.64 84.09,27.22 96.19,30.87 90.21,42 100,50 90.21,58 96.19,69.13 84.09,72.78 85.36,85.36 72.78,84.09 69.13,96.19 58,90.21 50,100 42,90.21 30.87,96.19 27.22,84.09 14.64,85.36 15.91,72.78 3.81,69.13 9.79,58 0,50 9.79,42 3.81,30.87 15.91,27.22 14.64,14.64 27.22,15.91 30.87,3.81 42,9.79"/><text x="340" y="344.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#efe7ce" letter-spacing="1">MARCA</text></svg>
+        <figcaption>Da marca à cultura da marca: as camadas do branding.</figcaption>
+        <div class="layer-legend">
+          <div><b>Identidade visual</b>Cores, ícones, imagens, tipografia, grafismos, pontos de contato e texturas.</div>
+          <div><b>Branding</b>Valores, propósito, mercado, o porquê, arquétipo, personalidade, posicionamento, golden circle, tom de voz e manifesto.</div>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- PORTFÓLIO -->
+  <div id="portfolio"><svg class="defs" aria-hidden="true" focusable="false"><defs><g id="g-gatti"><path fill-rule="evenodd" fill="currentColor" d="M 665.5 876.9 C 663.8 877.4, 660.4 878.6, 658 879.8 C 655.5 881.0, 652.7 881.9, 651.8 881.9 C 650.9 881.9, 648.8 883.0, 647.3 884.3 C 645.7 885.6, 643.4 887.0, 642.0 887.4 C 636.8 889.1, 629.7 898.2, 622.2 912.9 L 618 921.2 618 978.7 L 618 1036.2 620.8 1041.3 C 622.4 1044.1, 624.1 1047.6, 624.5 1048.9 C 626.8 1056.4, 644.9 1073.9, 650.4 1074.0 C 651.0 1074.0, 654.2 1075.3, 657.5 1077 L 663.5 1079.9 788.8 1079.9 C 873.2 1079.9, 914.7 1079.6, 916.0 1078.9 C 919.0 1077.3, 919.0 956.5, 916.1 952.8 L 914.2 950.5 861.8 950.3 C 797.7 950.0, 788.3 950.4, 786.7 953.4 C 786.0 954.7, 785.5 963.3, 785.3 976.3 C 784.9 996.6, 785.7 1004.0, 788.1 1005.6 C 788.7 1005.9, 804.1 1006.2, 822.3 1006.1 C 864.4 1005.9, 863.9 1005.8, 863.9 1016.5 C 864.0 1026.9, 872.6 1026, 775.6 1026 C 679.8 1026, 687.9 1026.7, 678.2 1017.2 L 672 1011.1 672 978.6 L 672 946.2 675.7 941.6 C 677.8 939.1, 681.6 935.6, 684.2 933.9 L 688.8 930.9 801.7 930.7 C 895.7 930.5, 914.9 930.2, 916.3 929.1 C 919.1 926.8, 918.8 880.8, 916 878 C 914.0 876.0, 912.7 876.0, 791.2 876.1 C 723.7 876.1, 667.1 876.5, 665.5 876.9 M 1018.8 876.9 C 1012.5 878.8, 1002.3 883.3, 1000.5 884.9 C 999.4 885.9, 997.1 887.4, 995.5 888.2 C 992.1 889.9, 987.2 895.6, 984.5 901 C 983.5 902.9, 981.7 905.4, 980.5 906.5 C 979.2 907.7, 978.0 910.4, 977.6 912.9 C 977.2 915.3, 975.7 919.1, 974.4 921.5 L 971.8 925.8 971.9 994.1 C 971.9 1031.7, 971.9 1065.7, 971.9 1069.6 C 972.0 1080.4, 970.8 1080, 998.5 1080 C 1028.8 1080, 1026 1082.5, 1026 1055.1 C 1026 1036.0, 1026.1 1034.0, 1027.9 1031.8 L 1029.8 1029.5 1106.1 1029.1 C 1148.1 1029.0, 1189.4 1029.1, 1197.9 1029.5 C 1219.3 1030.4, 1218 1028.7, 1218 1055.8 C 1218 1073.6, 1218.2 1077.1, 1219.5 1078.4 C 1222.1 1080.9, 1268.0 1080.7, 1270.3 1078.1 C 1271.8 1076.5, 1272 1069.8, 1272 1002.8 L 1272 929.2 1269.4 924.5 C 1268.1 921.9, 1266.5 917.9, 1266.0 915.6 C 1264.9 910.8, 1259.8 901.8, 1255.2 896.5 C 1250.8 891.5, 1239.3 882, 1237.6 882 C 1236.9 882, 1234.0 880.7, 1231.3 879.2 L 1226.5 876.5 1124 876.3 C 1067.6 876.2, 1020.3 876.5, 1018.8 876.9 M 1310 878 C 1306.8 881.1, 1306.9 925.7, 1310.1 928.5 C 1312.1 930.4, 1314.6 930.5, 1368.2 930.6 L 1424.3 930.7 1426.6 933.4 C 1427.9 934.9, 1429.0 936.8, 1429.0 937.8 C 1429.0 938.7, 1429.1 970.2, 1429.2 1007.8 L 1429.5 1076.1 1431.8 1078.0 C 1435.4 1081.0, 1479.5 1081.0, 1483.1 1078.0 L 1485.5 1076.1 1485.6 1006.5 C 1485.7 938.5, 1485.7 936.7, 1487.7 934.1 L 1489.7 931.5 1547.4 931 C 1603.1 930.5, 1605.2 930.4, 1606.5 928.5 C 1607.7 927.0, 1608 921.9, 1608 903.7 L 1608 880.9 1605.5 878.4 L 1603.0 876 1457.5 876 C 1313.3 876, 1311.9 876.0, 1310 878 M 1655.3 877.1 C 1651.5 879.0, 1651 882.1, 1651 903.5 C 1651 925.8, 1651.4 928.2, 1656.2 929.9 C 1658.2 930.6, 1678.0 931, 1713 931 C 1767.7 931, 1771.9 931.2, 1773.6 934.8 C 1774.1 935.7, 1774.5 967.9, 1774.7 1006.3 C 1774.8 1070.5, 1775.0 1076.3, 1776.6 1078.1 C 1778.1 1079.8, 1780.0 1080, 1801.0 1080 C 1823.7 1080, 1823.9 1079.9, 1826.6 1077.5 L 1829.5 1075.1 1829.6 1005.1 C 1829.8 956.3, 1830.1 934.4, 1830.9 933.0 C 1832.0 931.0, 1832.7 930.9, 1876.2 930.8 C 1947.7 930.6, 1946.4 930.6, 1948.3 929.1 C 1950.9 926.9, 1950.8 880.0, 1948.1 877.6 C 1946.4 876.1, 1934.9 876.0, 1801.9 876.0 C 1704.6 876.1, 1656.8 876.4, 1655.3 877.1 M 1998.4 877.4 C 1995.5 879.5, 1994.8 1075.0, 1997.6 1078.2 C 2000.2 1080.9, 2045.8 1080.5, 2048.7 1077.7 C 2050.4 1076.0, 2050.5 1070.6, 2050.5 978.3 L 2050.5 880.8 2047.6 878.4 C 2044.9 876.0, 2044.7 876, 2022.6 876 C 2004.9 876, 1999.9 876.2, 1998.4 877.4 M 1036.3 931.2 C 1034.8 931.5, 1031.9 933.6, 1029.8 935.6 L 1026 939.4 1026 954.6 C 1026 966.4, 1026.3 970.1, 1027.4 971.2 C 1029.4 973.3, 1055.5 974.0, 1130.5 973.8 C 1198.7 973.7, 1214.1 973.3, 1216.2 971.2 C 1217.0 970.3, 1217.6 966.0, 1217.8 958.2 C 1218.2 942.9, 1217.2 940.0, 1209.9 934.9 L 1204.4 931.0 1121.7 930.7 C 1076.2 930.6, 1037.7 930.8, 1036.3 931.2"/></g><g id="g-zero45"><path fill-rule="evenodd" fill="currentColor" d="M 1320 825 C 1317.5 826.6, 1314.7 827.9, 1313.7 827.9 C 1309.7 828.0, 1308 831.5, 1308 839.7 C 1308 848.3, 1308.3 849.1, 1315.6 856.8 C 1318.0 859.4, 1321.6 864.2, 1323.5 867.5 C 1325.4 870.9, 1327.9 874.5, 1329.1 875.5 C 1334.5 880.5, 1333.3 888.8, 1326.0 896.5 C 1323.3 899.4, 1320.7 903.0, 1320.4 904.6 C 1320.0 906.2, 1318.4 909.5, 1316.8 912.0 C 1315.2 914.6, 1314 917.7, 1314 919.0 C 1314 920.4, 1312.6 923.9, 1311.0 927 L 1308.0 932.5 1308.0 962.5 L 1308.0 992.5 1311.0 998.4 C 1312.6 1001.7, 1314.0 1005.5, 1314.0 1006.9 C 1314.0 1008.3, 1315.3 1011.5, 1317 1014 C 1318.6 1016.4, 1319.9 1019.2, 1319.9 1020.1 C 1319.9 1020.9, 1321.2 1023.4, 1322.8 1025.6 C 1324.4 1027.8, 1326.0 1030.6, 1326.4 1031.9 C 1327.1 1034.1, 1333.4 1041.5, 1342.3 1050.7 C 1344.6 1053.1, 1348.8 1056.4, 1351.7 1058.0 C 1354.6 1059.6, 1359.8 1063.4, 1363.2 1066.3 C 1371.2 1073.0, 1372.9 1074, 1377.7 1074 C 1380.2 1074, 1382.8 1074.9, 1385.5 1076.7 C 1388.2 1078.5, 1391.3 1079.6, 1395.5 1080.0 C 1399.5 1080.4, 1402.7 1081.5, 1405.3 1083.3 C 1409.2 1085.9, 1409.5 1086, 1426.3 1085.9 C 1443.3 1085.9, 1443.5 1085.9, 1449.5 1083 C 1453.7 1080.8, 1456.9 1080.0, 1460.5 1079.9 C 1464.3 1079.9, 1466.5 1079.3, 1470 1077 C 1472.4 1075.3, 1475.4 1073.9, 1476.5 1073.9 C 1477.6 1073.9, 1481.1 1072.6, 1484.4 1070.9 C 1487.7 1069.3, 1491.7 1068, 1493.2 1068 C 1497.2 1068, 1507.1 1077.5, 1510.5 1084.6 C 1513.1 1090.1, 1523.7 1101.5, 1527.7 1103.0 C 1530.8 1104.2, 1533.6 1102.9, 1539.5 1097.3 C 1547.2 1089.9, 1548 1088.4, 1548 1080.8 C 1548 1072.9, 1546.8 1069.9, 1542.9 1067.6 C 1541.3 1066.7, 1539.0 1064.4, 1537.8 1062.7 C 1536.6 1060.9, 1533.0 1056.5, 1529.9 1053 C 1521.2 1043.0, 1520.9 1038.7, 1528.3 1030.8 C 1534.3 1024.4, 1535.9 1021.9, 1536.0 1019.0 C 1536.0 1017.6, 1537.3 1013.8, 1539 1010.5 C 1540.6 1007.2, 1541.9 1003.6, 1542.0 1002.5 C 1542.0 1001.4, 1543.3 998.4, 1545 996 L 1547.9 991.5 1547.9 962.7 L 1548 933.9 1545 928.3 C 1543.3 925.2, 1541.9 921.3, 1541.9 919.6 C 1541.9 917.8, 1540.7 914.5, 1539 912 C 1537.3 909.5, 1536.0 906.7, 1536.0 905.9 C 1536.0 905.0, 1534.7 902.5, 1533.1 900.4 C 1531.6 898.2, 1529.1 894.1, 1527.5 891.3 C 1523.9 884.6, 1510.8 871.4, 1503.3 867.0 C 1500.1 865.1, 1495.9 862.4, 1494 860.9 C 1488.8 857.1, 1482.0 853.4, 1477.5 851.9 C 1475.3 851.2, 1472.2 849.8, 1470.6 848.7 C 1468.8 847.4, 1465.2 846.4, 1460.6 845.9 C 1455.9 845.5, 1451.8 844.3, 1448.6 842.6 C 1443.8 840.0, 1443.0 840, 1427.4 840 C 1411.3 840, 1411.2 840.0, 1405.6 843 C 1400.8 845.5, 1398.9 846.0, 1392.7 846.0 C 1387.0 846.0, 1384.7 846.4, 1382 848.2 C 1377.1 851.2, 1365.8 857, 1364.6 857 C 1364.1 857, 1355.9 849.1, 1346.4 839.5 C 1327.2 820.1, 1327.2 820.1, 1320 825 M 704 848 C 701.3 850.6, 701.0 870.1, 703.5 873.7 C 706.0 877.4, 710.6 877.6, 762 877.4 C 815.3 877.2, 815.0 877.2, 814.9 882.4 C 814.9 885.4, 814.1 886.2, 806.5 891.2 C 795.2 898.5, 775.7 918.4, 774.5 923.8 C 774.1 925.5, 769.7 930.9, 763.3 937.5 C 757.0 944.0, 751.9 950.3, 750.7 953 C 749.6 955.4, 747.0 959.9, 745.0 963 C 735.7 976.7, 732.1 982.6, 731.4 985 C 731.0 986.3, 729.7 988.8, 728.4 990.5 C 727.2 992.1, 725.7 995.0, 725.1 996.9 C 724.4 998.8, 723.3 1001.0, 722.6 1001.9 C 720.1 1004.7, 714 1017.2, 713.9 1019.4 C 713.9 1020.5, 712.6 1023.5, 711 1026 C 709.3 1028.4, 708.0 1031.1, 708 1032 C 707.9 1032.8, 706.6 1035.5, 705 1038 C 702.0 1042.4, 702.0 1042.6, 702.0 1055.8 C 702 1070.7, 702.5 1072.4, 708.7 1077.2 L 712.3 1080 786 1080 L 859.6 1080 863.2 1077.2 C 869.2 1072.6, 870 1070.4, 870 1058.5 C 870 1042.3, 876.6 1044, 810 1044 C 755.3 1044, 753.9 1043.9, 752 1042 C 749.2 1039.2, 749.5 1036.5, 753.0 1029.5 C 754.6 1026.2, 756 1022.6, 756 1021.4 C 756 1020.3, 757.5 1016.9, 759.5 1014 C 761.4 1011.0, 763 1008.1, 763 1007.7 C 763 1006.8, 771.0 993.0, 776.5 984.5 C 778.3 981.7, 780.0 978.3, 780.3 977 C 780.6 975.6, 783.4 971.8, 786.4 968.5 C 789.5 965.2, 793.7 959.5, 795.7 956 C 798.6 950.9, 806.7 942.1, 833.1 915.7 C 851.6 897.2, 867.5 881.0, 868.4 879.8 C 869.6 878.1, 870 875.0, 870 867.1 C 870 855.5, 869.1 853.3, 863.2 848.7 L 859.6 846 782.8 846 C 707.3 846, 705.9 846.0, 704 848 M 907.8 848.1 C 905.3 850.6, 905.8 854.4, 909.1 859.0 C 910.9 861.4, 911.5 863.8, 911.9 870.7 C 912.3 877.3, 913.0 880.4, 914.7 883.3 C 916.0 885.4, 917.5 889.3, 918.0 891.9 C 918.8 895.3, 920.5 898.4, 924.0 902.5 C 926.8 905.8, 929.5 910.1, 930.0 912.2 C 931.3 916.8, 946.9 932.9, 953.3 936.1 C 962.8 941.0, 970 947.4, 970 951.1 C 970 954.3, 965.1 958.5, 959.6 960.0 C 955.1 961.3, 931.9 984.1, 928.8 990.3 C 927.7 992.6, 924.9 996.8, 922.8 999.6 C 920.6 1002.5, 918.4 1006.5, 917.8 1008.6 C 917.2 1010.7, 915.8 1013.8, 914.6 1015.4 C 913.0 1017.6, 912.4 1020.5, 911.9 1026.9 C 911.5 1033.6, 910.8 1036.5, 908.6 1040.3 C 906.0 1045.1, 906 1045.8, 906 1060.6 C 906 1074.6, 906.1 1076.1, 908 1078 C 909.9 1079.9, 911.3 1080, 986.8 1080 L 1063.6 1080 1067.2 1077.2 C 1072.7 1073.0, 1074 1070.1, 1074 1062 C 1074 1053.8, 1072.7 1050.9, 1067.2 1046.7 L 1063.6 1044 1006.0 1044 C 941.6 1044, 943.2 1044.1, 945.8 1037.8 C 946.6 1035.9, 947.5 1032.0, 947.8 1028.9 C 948.2 1025.6, 949.4 1022.1, 950.8 1020.2 C 952.1 1018.4, 953.5 1015.4, 954.0 1013.6 C 954.5 1011.8, 956.7 1008.4, 958.9 1006.2 C 965.0 999.7, 966 997.9, 966 992.7 C 966 985.4, 968.0 984, 978.0 984 C 985.0 984, 986.7 983.6, 991.6 981 C 994.7 979.3, 998.5 978, 1000.0 978 C 1001.4 978, 1004.4 976.7, 1006.6 975.2 C 1010.1 972.8, 1011.6 972.5, 1021.5 972.0 C 1031.1 971.5, 1033.0 971.1, 1037.0 968.7 C 1041.0 966.3, 1042.7 966, 1049.8 966 C 1061.4 966, 1062 965.2, 1062 951.2 C 1062 938.8, 1061.4 937.4, 1054.1 932.8 C 1049.6 930.0, 1049.5 930, 1033.0 930 C 1016.6 930, 1016.4 929.9, 1011 927.0 C 1007.9 925.4, 1004.3 924.0, 1003 924.0 C 1001.6 924.0, 998.4 922.6, 996 921 C 993.5 919.3, 990.8 918.0, 990.1 918.0 C 987.9 917.9, 971.3 907.1, 965.8 902.1 C 960.4 897.2, 954.9 888.0, 954.7 883.5 C 954.5 876.9, 952.7 877.1, 1015.2 877.2 L 1071.5 877.3 1072.7 874.9 C 1074.9 870.5, 1074.4 850.4, 1072 848 C 1068.7 844.7, 911.1 844.8, 907.8 848.1 M 1122.7 848.7 C 1115.4 854.3, 1116 845.3, 1116 960.1 C 1116 1072.6, 1115.5 1064.2, 1121.3 1070.4 C 1128.8 1078.5, 1131.7 1080, 1140.0 1080 C 1151.8 1080, 1152 1079.7, 1152 1061.2 C 1152 1046.8, 1152.0 1046.3, 1154.9 1041 C 1157.1 1036.9, 1157.9 1034.1, 1157.9 1030.1 C 1158.0 1024.3, 1158.8 1022.1, 1163.1 1017.2 C 1164.7 1015.4, 1166.9 1012.0, 1168.1 1009.7 C 1170.6 1004.7, 1175.5 998.9, 1181.7 993.7 C 1188.8 987.7, 1200 989.0, 1200 995.8 C 1200 996.8, 1201.3 999.5, 1202.9 1001.7 C 1204.6 1004.0, 1206.2 1007.1, 1206.6 1008.5 C 1206.9 1010.0, 1209.4 1013.7, 1212.1 1016.6 C 1214.7 1019.5, 1217.2 1023.2, 1217.5 1024.7 C 1217.9 1026.2, 1219.5 1029.5, 1221.1 1032.0 C 1222.7 1034.6, 1224.0 1037.3, 1224.0 1038.0 C 1224.0 1038.8, 1225.3 1041.5, 1227 1044 C 1228.6 1046.4, 1229.9 1049.1, 1230 1050 C 1230.0 1050.8, 1231.3 1053.5, 1233 1056 C 1234.6 1058.4, 1235.9 1061.1, 1235.9 1062.0 C 1236.0 1064.4, 1245.3 1077.3, 1248.0 1078.7 C 1249.4 1079.4, 1254.3 1079.9, 1259.3 1079.9 L 1268.2 1080 1273.1 1075.1 C 1276.2 1072.0, 1277.9 1069.4, 1277.9 1067.8 C 1277.9 1065.2, 1273.2 1055.6, 1268.8 1049.6 C 1267.2 1047.4, 1265.9 1044.9, 1265.9 1044.1 C 1265.9 1043.2, 1264.6 1040.4, 1263 1038 C 1261.3 1035.5, 1260.0 1032.7, 1260.0 1031.9 C 1260.0 1031.0, 1258.7 1028.5, 1257.1 1026.4 C 1253.2 1020.9, 1248 1011.5, 1248 1009.9 C 1248 1008.5, 1238.9 992.7, 1233.2 984.1 C 1228.7 977.5, 1229.3 974.2, 1235.3 972.2 C 1237.4 971.5, 1240.5 970.0, 1242.1 968.9 C 1243.7 967.7, 1246.5 966.4, 1248.2 965.8 C 1251.7 964.9, 1267.2 951.6, 1270.2 947.1 C 1271.5 945.1, 1271.9 942.4, 1271.9 936.5 C 1271.9 929.6, 1272.3 928.1, 1274.8 924.0 C 1278.4 918.3, 1280.3 909.0, 1279 903.5 C 1278.4 901.3, 1278.0 895.9, 1278.0 891.5 C 1278.0 885.6, 1277.4 882.5, 1275.9 879.3 C 1273.2 873.8, 1252.7 853.2, 1249.1 852.3 C 1247.7 852.0, 1244.4 850.4, 1241.9 848.8 L 1237.3 846 1181.8 846 L 1126.3 846 1122.7 848.7 M 1709.3 847.4 C 1707.6 848.1, 1704.5 850.9, 1702.3 853.5 C 1692.9 865.1, 1676.4 882.3, 1632.2 926.6 C 1600.2 958.7, 1584.8 974.8, 1584.3 976.7 C 1584.0 978.2, 1582.4 981.5, 1580.8 984.0 C 1574.1 994.7, 1578.6 1011.0, 1589 1013.6 C 1590.3 1013.9, 1593.5 1015.5, 1596.0 1017.1 L 1600.6 1020 1638.1 1020 L 1675.5 1020 1679.4 1017.3 C 1681.6 1015.8, 1684.5 1014.6, 1686 1014.6 C 1687.4 1014.6, 1690.3 1015.8, 1692.5 1017.3 C 1695.4 1019.3, 1697.7 1020, 1701.2 1020 C 1710.0 1020, 1710 1019.8, 1710 1050 C 1710 1082.5, 1708.4 1080, 1728 1080 C 1747.5 1080, 1746 1082.5, 1746 1050 C 1746 1018.6, 1745.4 1020, 1758 1020 C 1769.3 1020, 1770 1019.2, 1770 1005.4 C 1770 993.5, 1769.2 991.3, 1763.2 986.7 C 1760.4 984.6, 1758.5 984, 1754.8 984 C 1745.3 984, 1746 989.4, 1746 915 C 1746 851.3, 1745.9 849.9, 1744 848 C 1741.4 845.4, 1714.8 845.0, 1709.3 847.4 M 1826 848 C 1824.9 849.1, 1824 850.9, 1824 852.0 C 1824 853.1, 1822.7 856.4, 1821.2 859.2 L 1818.5 864.5 1818.2 907.5 C 1818.0 948.2, 1817.8 950.8, 1815.8 957.6 C 1813.7 964.6, 1813.7 965.0, 1815.4 969.4 C 1817.3 974.4, 1821.0 977.9, 1824.3 978.0 C 1825.5 978.0, 1829.2 979.3, 1832.5 981 C 1840.8 985.1, 1848.0 985.1, 1853.7 981.0 C 1859.6 976.7, 1868.9 972.0, 1871.3 971.9 C 1872.5 971.9, 1875.5 970.6, 1878 969 L 1882.5 966.0 1899.0 966.0 C 1915.2 966, 1915.6 966.0, 1919.4 968.6 C 1921.6 970.1, 1925.3 971.7, 1927.8 972.1 C 1936.5 973.7, 1949.9 985.0, 1950.0 990.7 C 1950.0 992.2, 1951.3 996.2, 1953 999.5 C 1956.7 1006.9, 1956.7 1009.3, 1953.1 1014.6 C 1951.5 1017.0, 1949.9 1020.6, 1949.6 1022.8 C 1948.8 1028.0, 1943.5 1034.9, 1938.4 1037.5 C 1936.2 1038.7, 1932.9 1040.6, 1931 1041.8 C 1929.0 1043.0, 1926.8 1043.9, 1926 1044.0 C 1925.1 1044.0, 1922.4 1045.3, 1920 1047 L 1915.5 1049.9 1899 1049.9 L 1882.5 1049.9 1878 1047 C 1875.5 1045.3, 1872.4 1044.0, 1871.0 1044.0 C 1864.2 1043.9, 1850.2 1033.0, 1848.1 1026.1 C 1846.7 1021.3, 1844.0 1020.0, 1840.4 1022.4 C 1839.1 1023.3, 1834.0 1026.1, 1829.2 1028.6 C 1818.4 1034.2, 1818.2 1034.4, 1817.4 1038.0 C 1816.2 1043.8, 1817.8 1046.5, 1828.4 1057.2 C 1840.8 1069.6, 1845.0 1072.6, 1851.3 1073.8 C 1854.0 1074.3, 1857.6 1075.8, 1859.3 1077.0 C 1861.6 1078.7, 1864.3 1079.5, 1870.4 1080.0 C 1876.0 1080.5, 1880.3 1081.5, 1884.3 1083.5 C 1891.7 1086.9, 1905.0 1086.7, 1913.5 1083.0 C 1916.5 1081.6, 1921.6 1080.5, 1926.5 1080.1 C 1932.6 1079.6, 1935.2 1078.9, 1937.8 1077.0 C 1939.7 1075.7, 1943.3 1074.3, 1945.8 1073.8 C 1948.3 1073.3, 1952.7 1071.4, 1955.5 1069.6 C 1963.3 1064.3, 1978.5 1048.7, 1980.0 1044.4 C 1980.6 1042.4, 1982.3 1039.1, 1983.6 1037.2 C 1984.9 1035.2, 1986.0 1032.5, 1986.0 1031.1 C 1986.0 1029.6, 1987.3 1025.8, 1989 1022.5 C 1991.6 1017.1, 1991.9 1015.4, 1991.9 1007.5 C 1991.9 999.5, 1991.6 997.8, 1989 992.5 C 1987.3 989.2, 1986.0 985.7, 1986.0 984.8 C 1986.0 983.8, 1984.0 979.3, 1981.6 974.6 C 1975.6 963.1, 1954.8 942, 1949.5 942 C 1948.3 942, 1945.0 940.7, 1942.3 939.3 C 1939.4 937.7, 1935.0 936.3, 1931.3 935.9 C 1927.3 935.5, 1924.0 934.4, 1921.8 932.8 C 1918.6 930.6, 1917.6 930.4, 1899.2 930.1 C 1883.9 929.9, 1879.3 930.1, 1877.2 931.3 C 1869.9 935.1, 1868.1 935.8, 1863.2 936.4 C 1854.0 937.5, 1854 937.3, 1854 909.5 C 1854 884.5, 1854.3 882.1, 1858.6 879.3 C 1861.2 877.6, 1865.1 877.4, 1916.1 877.4 C 1959.1 877.4, 1971.2 877.1, 1972.2 876.1 C 1973.0 875.3, 1973.6 870.8, 1973.8 862.5 C 1974.3 843.9, 1983.6 846, 1899 846 C 1829.3 846, 1827.9 846.0, 1826 848 M 1400.7 880.2 C 1391.6 884.9, 1390.3 887.2, 1394.0 892.3 C 1395.3 894.0, 1397.6 897.9, 1399.0 900.9 C 1401.0 904.9, 1406.1 910.9, 1417.3 922.3 C 1429.5 934.6, 1433.2 939.0, 1434.0 942.0 C 1434.8 945.0, 1438.2 949.1, 1449.0 960.0 C 1456.8 967.9, 1465.5 977.9, 1468.9 982.8 C 1476.3 993.5, 1493.8 1012, 1496.6 1012 C 1500.8 1012, 1505.9 1004.1, 1506.0 997.6 C 1506.0 995.8, 1507.2 992.6, 1509.0 990.1 L 1512 985.6 1512 963 L 1512 940.3 1509.0 935.9 C 1507.3 933.4, 1506.0 930.4, 1506.0 929.1 C 1505.9 917.8, 1469.6 882.0, 1458.2 881.9 C 1457.3 881.9, 1454.4 880.6, 1452 879 L 1447.5 876.0 1428 876.0 L 1408.5 876.1 1400.7 880.2 M 1158.2 878.0 C 1157.0 878.5, 1155.1 880.4, 1154.0 882.2 C 1152.0 885.3, 1152.0 887.2, 1152.0 926.1 C 1152.0 948.5, 1152.2 967.5, 1152.6 968.4 C 1153.5 970.9, 1156.1 970.2, 1162.0 965.8 C 1165.0 963.6, 1168.6 961.2, 1170 960.6 C 1171.3 960.0, 1174.2 958.2, 1176.4 956.7 C 1178.5 955.2, 1180.8 954, 1181.4 954 C 1182.0 954, 1184.1 952.8, 1186.1 951.5 C 1188.1 950.2, 1191.0 948.8, 1192.6 948.4 C 1194.2 948.0, 1197.5 946.4, 1200.0 944.8 C 1203.5 942.7, 1205.9 941.9, 1209.5 941.9 C 1213.2 941.9, 1215.8 941.1, 1219.5 939 C 1222.6 937.1, 1225.9 936.0, 1228.3 936.0 C 1231.4 936.0, 1232.9 935.1, 1237.3 931.0 C 1248.5 920.4, 1250.8 909.4, 1244.5 897.4 C 1238.5 886.1, 1235.5 883.3, 1227.3 881.5 C 1224.1 880.7, 1219.0 879.4, 1216.0 878.5 C 1209.8 876.7, 1162.4 876.3, 1158.2 878.0 M 1673.5 933.4 C 1647.1 959.7, 1641.3 965.1, 1638.0 965.9 C 1633.2 967.2, 1632 969.2, 1632 975.4 C 1632 984.2, 1630.8 984, 1671 984 C 1704.6 984, 1706.0 983.9, 1708 982 C 1709.9 980.0, 1710 978.6, 1710 942.5 C 1710 922.0, 1709.7 904.4, 1709.3 903.5 C 1707.9 899.7, 1704.0 903.0, 1673.5 933.4 M 1354.6 916.3 C 1352.7 918.1, 1350.8 920.9, 1350.5 922.5 C 1350.1 924.1, 1348.5 928.2, 1346.9 931.6 L 1344 937.7 1344.0 962.1 L 1344.0 986.5 1347 992.5 C 1348.6 995.8, 1349.9 999.6, 1349.9 1001.0 C 1350.0 1004.6, 1351.7 1006.8, 1367.4 1022.5 C 1381.6 1036.7, 1391.6 1043.9, 1397.1 1044.0 C 1398.4 1044.0, 1401.5 1045.3, 1404 1047 L 1408.5 1049.9 1427.9 1049.9 L 1447.3 1050 1451.9 1047.1 C 1454.4 1045.5, 1457.7 1043.9, 1459.1 1043.6 C 1460.6 1043.2, 1463.2 1041.8, 1464.9 1040.4 C 1470.3 1035.8, 1469.5 1034.2, 1454.7 1019.6 C 1445.1 1010.1, 1440.7 1004.9, 1438.7 1001 C 1436.8 997.0, 1431.6 990.9, 1420.4 979.5 C 1411.7 970.7, 1404.1 962.1, 1403.4 960.5 C 1401.7 956.6, 1392.0 945.2, 1379.6 932.5 C 1374.1 927.0, 1368.5 920.9, 1367.1 919 C 1361.9 911.8, 1359.8 911.4, 1354.6 916.3"/></g><g id="g-educare"><path fill-rule="evenodd" fill="currentColor" d="M 578.5 843.0 C 576.8 843.5, 571.4 844.7, 566.5 845.6 C 554.2 847.7, 539.9 852.8, 525.1 860.2 C 514.2 865.6, 511.1 867.8, 498.4 879.0 C 490.5 885.9, 482.5 893.5, 480.5 895.9 C 469.5 909.0, 453.4 937.9, 450.3 950.1 C 449.4 953.6, 447.9 958.0, 447.0 960 C 443.9 966.1, 443.8 968.1, 443.5 1033.2 C 443.1 1104.3, 443.6 1120.0, 446.8 1127.0 C 447.9 1129.5, 449.3 1133.7, 449.9 1136.3 C 450.5 1139.0, 454.1 1147.5, 457.9 1155.3 C 470.0 1180.3, 490.7 1205.9, 508.4 1217.9 C 522.6 1227.5, 547.8 1238.3, 567.5 1243.2 C 586.2 1247.9, 624.6 1245.4, 641.2 1238.4 C 644.3 1237.0, 647.4 1236, 647.9 1236 C 649.7 1236, 668.0 1227.8, 673.4 1224.7 C 688.3 1215.9, 709.0 1196.4, 713.9 1186.5 C 723.6 1166.7, 709.9 1145.4, 686.2 1143.2 C 678.9 1142.5, 671.5 1146.4, 657.5 1158.2 C 645.4 1168.4, 635.7 1173.9, 621.3 1178.8 C 612.4 1181.8, 611.6 1182, 595.0 1182 C 578.0 1182, 577.7 1181.9, 567.1 1178.4 C 537.4 1168.5, 518.8 1149.5, 508.4 1118.5 C 503.0 1102.2, 503.1 1096.1, 509.0 1092.9 C 510.6 1092.1, 537.7 1091.7, 615.8 1091.6 L 720.5 1091.5 727.7 1088.0 C 738.2 1083.1, 743.4 1076.9, 745.8 1066.5 C 747.5 1059.2, 746.6 987.7, 744.6 969.8 C 741.8 944.7, 729.0 917.7, 708.9 895.0 C 701.4 886.4, 679.9 867.8, 671.5 862.5 C 661.9 856.5, 640.7 849.1, 621 844.9 C 609.3 842.4, 583.8 841.3, 578.5 843.0 M 931.6 877.4 C 926.9 879.1, 918.7 886.9, 916.4 891.8 C 910.6 904.0, 922.1 925.2, 935.3 926.7 C 941.0 927.3, 941.2 926.1, 935.9 923.6 C 920.8 916.7, 916.2 901.7, 925.3 889.6 C 930.8 882.4, 937.1 880.7, 951.8 882.2 C 955.2 882.6, 955.6 880.4, 952.5 878.4 C 948.9 876.0, 936.7 875.4, 931.6 877.4 M 1003.2 876.9 C 999.7 878.4, 1000.5 879.4, 1006.5 881.3 C 1014.3 883.8, 1021.2 890.6, 1023.4 897.9 C 1025.6 905.5, 1025.4 907.1, 1021.4 915.1 L 1017.8 922.2 1021.1 921.6 C 1028.6 920.1, 1031.2 914.9, 1031.3 900.9 C 1031.5 888.9, 1030.5 886.7, 1021.6 879.6 C 1017.6 876.3, 1007.9 874.9, 1003.2 876.9 M 1104.4 877.1 C 1100.6 878.9, 1099.6 882.0, 1099.1 892.8 C 1098.7 904.5, 1100.4 921.4, 1102.5 924.6 C 1104.2 927.3, 1109.1 928.5, 1111.9 927.0 L 1114.0 925.9 1111.5 921.6 C 1108.3 916.2, 1108.3 912.9, 1111.3 909.3 C 1116.0 903.6, 1116.2 902.5, 1112.9 898.4 C 1111.3 896.4, 1109.9 893.9, 1109.8 893.1 C 1109.4 887.4, 1111.4 884.6, 1117.7 881.8 C 1120.0 880.7, 1122 879.4, 1122 878.9 C 1122 876.3, 1108.9 874.9, 1104.4 877.1 M 1168.6 877.9 C 1154.4 882.5, 1150.3 888.5, 1151.2 903.5 C 1152.0 916.0, 1156.1 923, 1162.6 923 C 1166.2 923, 1166.3 920.9, 1163.0 913.9 C 1158.9 905.3, 1158.8 898.5, 1162.7 890.9 C 1166.6 883.3, 1169.5 881.5, 1177.3 881.7 C 1184.7 881.9, 1188.3 880.2, 1186.0 877.6 C 1184.2 875.4, 1176.1 875.5, 1168.6 877.9 M 1264.6 877.3 C 1252.4 880.8, 1247.5 887.7, 1247.5 901.5 C 1247.5 912.4, 1250.0 918.8, 1255.4 921.4 C 1262.1 924.5, 1262.8 922.2, 1257.5 913.9 C 1252.8 906.6, 1252.9 902.8, 1257.6 893.8 C 1261.9 885.6, 1265.4 882.4, 1270.9 881.5 C 1280.5 879.8, 1289.1 884.6, 1295.5 895.0 C 1299.5 901.4, 1301 901.8, 1301 896.3 C 1301 890.2, 1294.9 882.4, 1287 878.4 C 1282.4 876.1, 1270.9 875.6, 1264.6 877.3 M 1051.3 883.2 C 1049.6 886.0, 1048.1 903.3, 1049 911.9 C 1049.9 921.8, 1051.9 926.6, 1055.4 927.5 C 1061.4 929.0, 1063.3 926.3, 1060.4 920.3 C 1058.9 917.0, 1057.8 909.6, 1056.4 893 C 1056.1 889.4, 1055.6 885.4, 1055.4 884.2 C 1054.9 881.8, 1052.5 881.2, 1051.3 883.2 M 981.4 886.8 C 968.4 894.8, 972.0 912.2, 989.0 923.5 C 997.5 929.2, 1001.6 930.4, 1006.8 929.0 C 1014.3 927.0, 1013.8 925.4, 1004.8 923.7 C 988.2 920.4, 981.5 911.0, 984.9 896 C 987.7 883.7, 987.5 883.1, 981.4 886.8 M 1222.4 898.0 C 1222.0 898.7, 1221.4 902.6, 1221.2 906.6 C 1220.3 920.1, 1223.2 920.5, 1224.4 907 C 1225.0 899.5, 1224.1 895.3, 1222.4 898.0 M 1189.5 902.9 C 1187.8 904.8, 1187.8 905.1, 1189.8 909.9 C 1191.0 912.6, 1192 916.4, 1192 918.4 C 1192 921.7, 1192.1 921.9, 1193.9 921.0 C 1198.9 918.3, 1200.8 906.8, 1197 903 C 1194.4 900.4, 1191.8 900.4, 1189.5 902.9 M 1294.3 914.0 C 1290.1 919.5, 1282.1 924.2, 1275.0 925.4 C 1268.7 926.5, 1270.4 929.0, 1277.3 928.9 C 1284.7 928.9, 1299 917.6, 1299 911.8 C 1299 908.0, 1298.8 908.1, 1294.3 914.0 M 1645.9 970.3 C 1645.6 970.6, 1639.9 971.3, 1633.2 971.8 C 1617.1 973.2, 1604.0 978.9, 1584.7 993.1 C 1570.9 1003.4, 1556.0 1024.4, 1549.5 1042.9 C 1545.3 1054.8, 1546.7 1093.8, 1551.8 1109.0 C 1558.3 1128.3, 1570.9 1145.1, 1587 1155.9 C 1602.1 1166.1, 1606.2 1168.0, 1626 1174.6 C 1633.9 1177.2, 1676.7 1176.7, 1685.0 1173.9 C 1714.6 1163.9, 1734.8 1148.7, 1732.6 1137.9 C 1730.5 1127.2, 1716.2 1115.0, 1705.8 1115.0 C 1700.9 1114.9, 1696.9 1116.5, 1687.0 1122.2 C 1672.3 1130.7, 1658.1 1132.8, 1640.9 1128.9 C 1629.6 1126.4, 1625.7 1124.5, 1618.0 1117.4 C 1609.8 1109.7, 1603.6 1099.5, 1601.1 1089.5 C 1597.8 1076.1, 1597.8 1074.7, 1600.0 1063.8 C 1602.9 1049.0, 1607.3 1040.7, 1616.7 1031.9 C 1629.3 1020.2, 1641.4 1016.1, 1657.8 1017.9 C 1676.4 1020.1, 1678.9 1020.8, 1688.8 1026.7 C 1703.6 1035.5, 1711.1 1034.8, 1723.9 1023.3 C 1735.8 1012.6, 1735.8 1005.6, 1724.1 994.8 C 1709.6 981.3, 1693.2 973.1, 1678.5 971.8 C 1661.8 970.4, 1646.5 969.7, 1645.9 970.3 M 920.5 973.4 C 916.0 975.0, 913.4 978.0, 912.5 982.3 C 911.4 987.8, 911.9 1161.6, 913.0 1164.6 C 914.4 1168.2, 917.6 1171.7, 921.5 1173.8 C 926.1 1176.4, 1046.8 1175.8, 1051.4 1173.2 C 1057.9 1169.4, 1061.4 1158.0, 1058.9 1148.5 C 1054.9 1133.0, 1056.3 1133.5, 1013 1133.4 C 970.0 1133.3, 967.5 1132.7, 964.0 1123.6 C 962.6 1119.9, 962.8 1105.3, 964.3 1101.0 C 966.8 1093.8, 968.2 1093.5, 995.3 1093.2 C 1023.6 1092.9, 1027.5 1092.3, 1032.3 1087.0 C 1039.5 1079.0, 1037.9 1062.9, 1029.3 1057.3 C 1027.0 1055.8, 1023.0 1055.4, 1001.5 1054.8 C 974.3 1054.0, 969.9 1053.3, 966.2 1049.7 C 961.7 1045.2, 960.4 1030.9, 963.9 1023.3 C 967.4 1015.6, 967.3 1015.6, 1010.5 1015.0 C 1053.7 1014.4, 1052.4 1014.6, 1056.2 1006.1 C 1060.6 996.6, 1058.0 979.3, 1051.6 974.6 C 1048.8 972.5, 1048.1 972.4, 986.6 972.2 C 934.9 972.0, 923.8 972.2, 920.5 973.4 M 1108.6 973.4 C 1101.7 975.9, 1099.4 979.0, 1097.8 987.7 C 1096.7 994.2, 1096.4 1153.4, 1097.5 1160.6 C 1098.4 1166.6, 1101.6 1171.0, 1107.0 1173.8 L 1111.5 1176.1 1154 1175.7 C 1195.4 1175.2, 1196.7 1175.2, 1206.5 1172.7 C 1212 1171.3, 1218.3 1169.9, 1220.5 1169.5 C 1227.4 1168.3, 1243.2 1161.7, 1246.9 1158.4 C 1248.9 1156.7, 1253.1 1153.6, 1256.3 1151.4 C 1267.3 1144.2, 1280.5 1125.1, 1286.4 1107.5 C 1292.3 1090.3, 1292.2 1062.4, 1286.1 1041.4 C 1279.5 1018.6, 1270.2 1006.1, 1245.3 986.7 C 1243.9 985.7, 1232.8 981.6, 1215.6 975.9 L 1203.8 972 1158.1 972.0 C 1122.2 972.0, 1111.6 972.3, 1108.6 973.4 M 1340.9 972.9 C 1335.9 974.4, 1334.0 976.0, 1331.2 980.7 L 1328.5 985.5 1328 1010.5 C 1327.0 1059.9, 1327.5 1092.9, 1329.3 1099.0 C 1330.2 1102.1, 1331.4 1107.9, 1331.9 1111.8 C 1335.1 1134.4, 1359.8 1161.4, 1387 1172.0 C 1395.1 1175.1, 1396.2 1175.3, 1414.5 1176.0 C 1444.2 1177.2, 1449.3 1176.5, 1465.1 1168.5 C 1487.9 1157.1, 1495.1 1150.1, 1505.4 1129.8 C 1509.0 1122.7, 1512 1116.0, 1512 1115.0 C 1512 1113.9, 1513.1 1109.5, 1514.6 1105.2 L 1517.3 1097.5 1517.7 1046.3 C 1518.1 991.5, 1517.8 986.3, 1513.4 979.7 C 1509.5 973.7, 1504.6 972.0, 1492 972.0 C 1478.8 972.0, 1474.9 973.0, 1471.1 977.6 C 1466.1 983.7, 1465.8 986.4, 1465.1 1045 L 1464.3 1099.5 1461.6 1105.4 C 1455.4 1118.9, 1447.5 1126.2, 1435.1 1130.0 C 1414.8 1136.1, 1393.9 1126.7, 1384.2 1107.1 L 1380.5 1099.6 1380 1041.5 C 1379.4 976.3, 1379.7 979.2, 1371.8 974.5 C 1368.1 972.3, 1346.2 971.1, 1340.9 972.9 M 1848.5 973.3 C 1842.7 975.9, 1837.1 983.5, 1829.7 998.8 C 1825.9 1006.8, 1817.6 1023.9, 1811.3 1036.7 C 1805.1 1049.5, 1800 1060.2, 1800 1060.6 C 1800 1060.9, 1797.5 1066.1, 1794.6 1072.0 C 1791.6 1077.9, 1788.6 1084.5, 1787.9 1086.6 C 1787.2 1088.7, 1784.8 1093.9, 1782.5 1098.0 C 1775.1 1111.4, 1759.5 1145.2, 1756.0 1155.4 C 1752.5 1165.4, 1754.0 1170.4, 1761.7 1174.1 C 1767.3 1176.8, 1790.2 1176.5, 1795.6 1173.7 C 1799.6 1171.5, 1804.2 1166.1, 1805.9 1161.2 C 1808.3 1154.5, 1815.0 1145.3, 1819.3 1142.8 C 1823.4 1140.5, 1824.0 1140.4, 1854.5 1140.1 C 1874.7 1139.9, 1886.7 1140.2, 1889.1 1140.9 C 1893.8 1142.3, 1898.4 1147.0, 1901.7 1153.9 C 1910.5 1172.2, 1915.0 1175.2, 1934.7 1175.3 C 1948.7 1175.5, 1955.5 1173.8, 1958.5 1169.6 C 1961.3 1165.6, 1960.8 1163.4, 1953.0 1146 C 1950.9 1141.3, 1948.0 1134.5, 1946.5 1131 C 1945 1127.4, 1938.6 1114.1, 1932.4 1101.5 C 1926.2 1088.8, 1917.9 1071.3, 1913.9 1062.5 C 1910.0 1053.7, 1904.6 1042.2, 1902.0 1037 C 1899.4 1031.7, 1896.9 1026.3, 1896.5 1025 C 1894.9 1019.5, 1876.9 984.2, 1873.6 979.8 C 1868.1 972.6, 1856.8 969.7, 1848.5 973.3 M 1998.6 972.9 C 1993.7 973.9, 1989.9 976.7, 1987.7 981.0 C 1986.1 984.2, 1986.0 990.6, 1986.0 1072.5 C 1986 1163.4, 1986.0 1165.3, 1990.2 1169.7 C 1994.7 1174.6, 1997.5 1175.3, 2010.5 1175.1 C 2024.5 1174.9, 2027.8 1174.0, 2031.8 1169.4 C 2036.3 1164.4, 2036.9 1160.7, 2037.9 1136 C 2038.9 1112.3, 2039.6 1108.1, 2043.1 1104.3 C 2047.7 1099.4, 2056.9 1100.6, 2063.0 1106.8 C 2065.0 1108.8, 2071.4 1119.2, 2077.4 1130 C 2102.7 1175.4, 2102.7 1175.5, 2125 1175.5 C 2137.4 1175.5, 2138.9 1175.2, 2143.5 1173 C 2154 1167.7, 2152.3 1162.2, 2128.3 1121.8 C 2115.5 1100.3, 2115.0 1097.1, 2123.7 1089.5 C 2145.2 1070.6, 2151.4 1060.1, 2152.6 1040.5 C 2153.2 1032.3, 2152.9 1030.3, 2150.0 1020 C 2145.2 1003.2, 2143.4 1000.1, 2133.4 992.0 C 2122.6 983.3, 2115.1 979.8, 2092.5 973.4 C 2087.1 971.8, 2006.3 971.4, 1998.6 972.9 M 2202.1 972.7 C 2198.6 973.3, 2191.4 981.0, 2190.6 984.8 C 2189.5 990.3, 2189.8 1160.1, 2190.9 1163.8 C 2192.2 1168.1, 2194.4 1170.6, 2199.5 1173.3 C 2203.3 1175.4, 2204.7 1175.5, 2244.5 1175.7 C 2267.0 1175.9, 2294.9 1175.7, 2306.5 1175.2 C 2327.6 1174.4, 2327.6 1174.4, 2331.3 1171.6 C 2336.5 1167.6, 2338.0 1164.9, 2338.9 1157.6 C 2340.3 1146.8, 2338.2 1140.5, 2331.7 1135.6 C 2329.2 1133.7, 2327.1 1133.6, 2293.7 1133.3 C 2248.1 1132.9, 2247.0 1132.7, 2244.1 1126.4 C 2242.7 1123.3, 2242.6 1106.8, 2244.0 1101.9 C 2246.2 1093.7, 2246.7 1093.6, 2277.0 1092.8 C 2307.1 1092.1, 2309.6 1091.5, 2313.4 1085 C 2316.2 1080.2, 2316.3 1066.9, 2313.5 1062.3 C 2309.5 1055.5, 2305.5 1054.8, 2273.3 1054.6 L 2249.8 1054.5 2247 1051.3 C 2242.4 1046.2, 2241.4 1026.8, 2245.3 1020.8 C 2248.6 1015.7, 2249.8 1015.6, 2289.5 1015.0 C 2330.8 1014.4, 2330.6 1014.4, 2335.1 1007.2 C 2337.1 1004.0, 2337.4 1002.3, 2337.3 995.8 C 2336.9 981.8, 2333.6 975.3, 2325.4 973.1 C 2321.5 972.0, 2207.5 971.6, 2202.1 972.7 M 1155.7 1016.5 C 1148.1 1020.8, 1146.9 1029.7, 1147.5 1079.9 C 1148.0 1134.3, 1147.2 1132.9, 1176 1132.4 C 1207.2 1132.0, 1223.4 1123.6, 1231.9 1103.3 C 1236.1 1093.3, 1237.3 1084.0, 1236.6 1067.0 C 1236.0 1053.9, 1235.9 1053.4, 1232.0 1045.1 C 1224.0 1028.5, 1216.7 1022.3, 1200.3 1018.3 C 1186.5 1014.9, 1160.3 1013.9, 1155.7 1016.5 M 2045.2 1016.4 C 2039.0 1019.2, 2037.2 1028.3, 2038.7 1048.4 C 2039.6 1060.0, 2039.7 1060.4, 2042.8 1063.1 L 2046.0 1066 2061.3 1066 C 2081.0 1066, 2085.2 1064.8, 2092.5 1057.5 C 2096.2 1053.8, 2098.2 1050.9, 2099.0 1047.9 C 2102.2 1036.0, 2094.5 1021.2, 2083.3 1017.6 C 2076.0 1015.3, 2049.5 1014.5, 2045.2 1016.4 M 1851.1 1053.3 C 1848.7 1055.8, 1842 1070.8, 1842 1073.5 C 1842 1074.4, 1839.9 1080.0, 1837.4 1085.9 C 1830.3 1102.4, 1832.0 1105.2, 1849.5 1105.8 C 1870.9 1106.5, 1878.8 1103.3, 1877.6 1094.5 C 1876.8 1089.0, 1863.7 1056.1, 1861.1 1053.2 C 1858.5 1050.2, 1854.0 1050.2, 1851.1 1053.3"/><path fill-rule="evenodd" fill="var(--lg-accent,currentColor)" d="M 584.0 692.7 C 580.4 694.5, 574.1 699.8, 565.9 708 C 558.9 714.8, 547.8 725.7, 541.3 732.1 C 499.9 772.9, 497.2 777.0, 501.9 792.1 C 504.2 799.4, 505.6 801.3, 512.6 805.7 C 524.1 813.1, 533.5 810.6, 547.5 796.5 C 568.3 775.7, 587.6 757.2, 589.6 756.1 C 596.1 752.7, 603.8 757.4, 619.3 774 C 634.6 790.3, 649.1 803.9, 654.1 806.3 C 671.8 815.2, 693.1 798.2, 688.9 778.4 C 687.6 772.0, 691.7 776.5, 641.4 725.9 C 607.8 692.1, 605.0 690, 594.9 690 C 590.8 690, 587.9 690.7, 584.0 692.7"/></g></defs></svg>
+    <section class="work m-gatti wrap" aria-labelledby="p1">
+      <div class="inner">
+        <div class="work-head">
+          <h3 class="meta" id="p1">Gatti Premium | Revenda de veículos | São Paulo-SP</h3>
+        </div>
+        <div class="mood">
+          <figure class="t t-a"><img class="ph" src="assets/moodboard/gatti-tapume.jpg" alt="Tapume preto com logotipo Gatti Premium e símbolo G em dourado" width="1600" height="894" loading="lazy" decoding="async"></figure>
+          <figure class="t t-b"><img class="ph" src="assets/moodboard/gatti-site.jpg" alt="Site da Gatti Premium em um monitor" width="1600" height="898" loading="lazy" decoding="async"></figure>
+          <figure class="t t-c"><img class="ph" src="assets/moodboard/gatti-bandeiras.jpg" alt="Três bandeiras da Gatti Premium em preto e dourado" width="1600" height="899" loading="lazy" decoding="async"></figure>
+          <figure class="t t-d t-w"><img class="ph" src="assets/moodboard/gatti-carro.jpg" alt="Carro esportivo preto envelopado com o G dourado da Gatti" width="1600" height="895" loading="lazy" decoding="async"></figure>
+          <figure class="t t-f t-pal"><ul class="swatches"><li style="--c:#161616;--tc:#efe7ce"><span>Grafite</span><code>#161616</code></li><li style="--c:#D0A970;--tc:#0c0c0a"><span>Dourado</span><code>#D0A970</code></li></ul><figcaption>Cores do logotipo</figcaption></figure>
+        </div>
+      </div>
+    </section>
+    <section class="work m-zero wrap" aria-labelledby="p2">
+      <div class="inner">
+        <div class="work-head">
+          <h3 class="meta" id="p2">Zero45 | Marca de Roupas | Toledo-PR</h3>
+        </div>
+        <div class="mood">
+          <figure class="t t-a"><img class="ph" src="assets/moodboard/zero45-banner.jpg" alt="Banner Street Wear Clothes da Zero45 pendurado em um galpão" width="1600" height="897" loading="lazy" decoding="async"></figure>
+          <figure class="t t-b"><img class="ph" src="assets/moodboard/zero45-ecobag.jpg" alt="Ecobag da Zero45 com alça azul sobre grade metálica" width="1600" height="901" loading="lazy" decoding="async"></figure>
+          <figure class="t t-c"><img class="ph" src="assets/moodboard/zero45-versoes.jpg" alt="Versões do logotipo Zero45 em creme sobre azul" width="1600" height="899" loading="lazy" decoding="async"></figure>
+          <figure class="t t-d t-w"><img class="ph" src="assets/moodboard/zero45-logo-linhas.jpg" alt="Logotipo Zero45 sobre fundo preto com linhas diagonais" width="1600" height="896" loading="lazy" decoding="async"></figure>
+          <figure class="t t-f t-pal"><ul class="swatches"><li style="--c:#040402;--tc:#efe7ce"><span>Preto</span><code>#040402</code></li><li style="--c:#F7F6E6;--tc:#0c0c0a"><span>Creme</span><code>#F7F6E6</code></li><li style="--c:#081E7A;--tc:#efe7ce"><span>Azul</span><code>#081E7A</code></li></ul><figcaption>Cores do logotipo</figcaption></figure>
+        </div>
+      </div>
+    </section>
+    <section class="work m-educare wrap" aria-labelledby="p3">
+      <div class="inner">
+        <div class="work-head">
+          <h3 class="meta" id="p3">Colégio Educare | Instituição de Ensino | Umuarama-PR</h3>
+        </div>
+        <div class="mood">
+          <figure class="t t-a"><img class="ph" src="assets/moodboard/educare-mochilas.jpg" alt="Mochilas laranja e grafite com o selo do Colégio Educare" width="1600" height="899" loading="lazy" decoding="async"></figure>
+          <figure class="t t-b"><img class="ph" src="assets/moodboard/educare-papelaria.jpg" alt="Cartões de visita, papel timbrado e envelope do Colégio Educare" width="1600" height="896" loading="lazy" decoding="async"></figure>
+          <figure class="t t-c"><img class="ph" src="assets/moodboard/educare-simbolos.jpg" alt="Variações do símbolo ê do Colégio Educare" width="1600" height="898" loading="lazy" decoding="async"></figure>
+          <figure class="t t-d"><img class="ph" src="assets/moodboard/educare-almofadas.jpg" alt="Almofadas laranja e amarela com o símbolo ê do Colégio Educare" width="1600" height="900" loading="lazy" decoding="async"></figure>
+          <figure class="t t-e t-or"><img class="ph fit" src="assets/moodboard/educare-logo.jpg" alt="Logotipo do Colégio Educare em branco sobre laranja" width="954" height="567" loading="lazy" decoding="async"></figure>
+          <figure class="t t-f t-pal"><ul class="swatches"><li style="--c:#F66300;--tc:#efe7ce"><span>Laranja</span><code>#F66300</code></li><li style="--c:#FFFFFF;--tc:#0c0c0a"><span>Branco</span><code>#FFFFFF</code></li><li style="--c:#FBB035;--tc:#0c0c0a"><span>Amarelo</span><code>#FBB035</code></li></ul><figcaption>Cores do logotipo</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="brands wrap on-light" aria-labelledby="outras">
+      <div class="inner">
+        <div class="brands-head">
+          <div>
+            <span class="label" style="color:var(--terra)">Portfólio</span>
+            <h2 class="h-sec" id="outras" style="margin-top:16px">Outras marcas</h2>
+          </div>
+          <p>Identidades criadas pela Response. Passe o mouse sobre cada marca para ver as cores originais.</p>
+        </div>
+        <ul class="logo-grid">
+          <li tabindex="0"><figure><img src="assets/portfolio/granumais.jpg" alt="GranuMais, granulado higiênico"></figure></li>
+          <li tabindex="0"><figure><img src="assets/portfolio/ress.jpg" alt="Ress Clinic"></figure></li>
+          <li tabindex="0"><figure><img src="assets/portfolio/cazan.jpg" alt="Cazan Imóveis"></figure></li>
+          <li tabindex="0"><figure><img src="assets/portfolio/dipdigital.jpg" alt="DipDigital"></figure></li>
+          <li tabindex="0"><figure><img src="assets/portfolio/carzenne.jpg" alt="Carzenne Group"></figure></li>
+          <li tabindex="0"><figure><img src="assets/portfolio/vida-e-flores.jpg" alt="Vida e Flores, floricultura e decoração"></figure></li>
+          <li tabindex="0"><figure><img src="assets/portfolio/andrade-turozi.jpg" alt="Andrade e Turozi Dental Experience"></figure></li>
+          <li tabindex="0"><figure><img src="assets/portfolio/lalinne-caldas.jpg" alt="Dra. Lalinne Caldas, odontologia humanizada"></figure></li>
+          <li tabindex="0"><figure><img src="assets/portfolio/out-decor.jpg" alt="Out.decor"></figure></li>
+          <li tabindex="0"><figure><img src="assets/portfolio/patrick-car-detailing.jpg" alt="Patrick Car Detailing Studio"></figure></li>
+          <li tabindex="0"><figure><img src="assets/portfolio/peleck.jpg" alt="Espetaria Peleck"></figure></li>
+          <li tabindex="0"><figure><img src="assets/portfolio/leo-manicardi.jpg" alt="Leo Manicardi"></figure></li>
+        </ul>
+        <div class="brands-cta">
+          <p>Sua marca pode ser a <em>próxima</em> deste portfólio.</p>
+          <a class="pill pill-green pill-lg" href="#contato">Vamos conversar</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- CONTATO -->
+  <section class="contact wrap" id="contato">
+    <div class="grain"></div>
+    <div class="inner">
+      <div>
+        <span class="label eyebrow"><span class="star" aria-hidden="true"></span>Vamos conversar?</span>
+        <h2>Entre em<br>contato</h2>
+        <p class="lead">Chegou a hora de mudar o marketing do seu negócio.</p>
+        <div class="channels">
+          <a href="https://wa.me/5544998418988" target="_blank" rel="noopener"><b>WhatsApp</b><span>(44) 99841-8988</span></a>
+          <a href="https://www.instagram.com/response.ag/" target="_blank" rel="noopener"><b>Instagram</b><span>@response.ag</span></a>
+        </div>
+      </div>
+      <form id="leadForm" novalidate>
+        <p class="form-note">Conte sobre seu projeto. Preencha e continue a conversa direto no nosso WhatsApp, com a mensagem já pronta. Campos com * são obrigatórios.</p>
+        <div class="field">
+          <label for="nome">Seu nome *</label>
+          <input id="nome" name="nome" autocomplete="name" required>
+          <span class="err" id="nomeErr" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label for="empresa">Nome da empresa</label>
+          <input id="empresa" name="empresa" autocomplete="organization">
+          <span class="err"></span>
+        </div>
+        <div class="field full">
+          <label for="necessidade">Qual é a sua necessidade? *</label>
+          <select id="necessidade" name="necessidade" required>
+            <option value="">Selecione uma opção</option>
+            <option>Planejamento de Marketing</option>
+            <option>Assessoria de Marketing</option>
+            <option>Criação de Conteúdos e Criativos</option>
+            <option>Mídia Paga</option>
+            <option>Identidade de Marca</option>
+            <option>Branding</option>
+            <option>Outro</option>
+          </select>
+          <span class="err" id="necErr" aria-live="polite"></span>
+        </div>
+        <div class="form-actions">
+          <a class="pill pill-green pill-lg" id="waBtn" href="https://wa.me/5544998418988" target="_blank" rel="noopener">Continuar no WhatsApp</a>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot wrap">
+  <div class="inner">
+    <div class="foot-row">
+      <p>Branding, performance e estratégia para marcas que querem crescer com propósito e impacto.</p>
+      <nav class="foot-links" aria-label="Rodapé">
+        <a href="#sobre">A Response</a><a href="#servicos">Serviços</a><a href="#metodo">Método</a><a href="#clientes">Clientes</a><a href="#branding">Branding</a><a href="#portfolio">Portfólio</a><a href="#contato">Contato</a>
+      </nav>
+      <div class="foot-contact">
+        <span class="label" style="color:var(--terra)">Fale com a gente</span>
+        <a href="https://wa.me/5544998418988" target="_blank" rel="noopener">WhatsApp (44) 99841-8988</a>
+        <a href="https://www.instagram.com/response.ag/" target="_blank" rel="noopener">Instagram @response.ag</a>
+      </div>
+    </div>
+    <a class="foot-logo" href="#inicio" aria-label="Response Agência, voltar ao topo"><img src="assets/logo/response-agencia-preto-web.png" alt="response.agência" width="1400" height="172"></a>
+    <div class="foot-legal"><span>© 2026 Response Agência. Todos os direitos reservados.</span><span>Branding · Performance · Estratégia</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* menu + header */
+  var top = document.getElementById('top'), menu = document.getElementById('menu'), tog = document.getElementById('menuToggle');
+  tog.addEventListener('click', function(){ var o = menu.classList.toggle('open'); tog.setAttribute('aria-expanded', o); onScroll(); });
+  menu.addEventListener('click', function(e){ if(e.target.closest('a')){ menu.classList.remove('open'); tog.setAttribute('aria-expanded', false); } });
+  function onScroll(){ top.classList.toggle('solid', window.scrollY > 60 || menu.classList.contains('open')); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  function seed(n){ var x = Math.sin(n*9301+49297)*233280; return x - Math.floor(x); }
+
+  /* trilhas de luz (hero) */
+  var tc = document.getElementById('trails'), tx = tc.getContext('2d'), lines = [], tw, th, dpr;
+  function setupTrails(){
+    dpr = Math.min(window.devicePixelRatio||1, 2);
+    tw = tc.clientWidth; th = tc.clientHeight;
+    tc.width = tw*dpr; tc.height = th*dpr; tx.setTransform(dpr,0,0,dpr,0,0);
+    lines = []; var count = Math.round(tw/14);
+    for(var i=0;i<count;i++){
+      var warm = seed(i+311) > .28;
+      lines.push({x: seed(i+1)*tw, len: th*(.25 + seed(i+77)*.6), w: .6 + seed(i+5)*1.6, hue: warm ? (18 + seed(i+9)*22) : 45, sat: warm ? 85 : 30, lit: warm ? 52 + seed(i+3)*14 : 88, a: .35 + seed(i+13)*.6, ph: seed(i+21)*6.28});
+    }
+  }
+  function drawTrails(t){
+    tx.clearRect(0,0,tw,th);
+    for(var i=0;i<lines.length;i++){
+      var l = lines[i], f = reduce ? 1 : (.8 + .2*Math.sin(t/900 + l.ph));
+      var g = tx.createLinearGradient(0,0,0,l.len);
+      g.addColorStop(0, 'hsla('+l.hue+','+l.sat+'%,'+l.lit+'%,0)');
+      g.addColorStop(.7, 'hsla('+l.hue+','+l.sat+'%,'+l.lit+'%,'+(l.a*.55*f)+')');
+      g.addColorStop(1, 'hsla('+l.hue+','+l.sat+'%,'+Math.min(l.lit+20,96)+'%,'+(l.a*f)+')');
+      tx.strokeStyle = g; tx.lineWidth = l.w; tx.beginPath(); tx.moveTo(l.x,0); tx.lineTo(l.x,l.len); tx.stroke();
+      tx.fillStyle = 'hsla('+l.hue+','+l.sat+'%,'+Math.min(l.lit+25,97)+'%,'+(l.a*f)+')';
+      tx.beginPath(); tx.arc(l.x, l.len, l.w*1.3, 0, 6.283); tx.fill();
+    }
+    var v = tx.createRadialGradient(tw/2, th*.45, th*.1, tw/2, th*.45, Math.max(tw,th)*.7);
+    v.addColorStop(0,'rgba(5,5,5,.6)'); v.addColorStop(1,'rgba(5,5,5,0)');
+    tx.fillStyle = v; tx.fillRect(0,0,tw,th);
+  }
+  var heroVisible = true;
+  function loop(t){ if(heroVisible) drawTrails(t); requestAnimationFrame(loop); }
+  setupTrails(); drawTrails(0); if(!reduce) requestAnimationFrame(loop);
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(e){ heroVisible = e[0].isIntersecting; }).observe(tc); }
+
+  /* redemoinho (manifesto) */
+  var sc = document.getElementById('swirl'), sx = sc.getContext('2d');
+  function drawSwirl(){
+    var d = Math.min(window.devicePixelRatio||1, 2), w = sc.clientWidth, h = sc.clientHeight;
+    sc.width = w*d; sc.height = h*d; sx.setTransform(d,0,0,d,0,0);
+    sx.fillStyle = '#120a05'; sx.fillRect(0,0,w,h);
+    var pal = ['rgba(150,88,40,','rgba(196,128,66,','rgba(92,52,24,','rgba(232,180,120,','rgba(20,12,6,'];
+    var N = Math.round(w*h/900);
+    for(var i=0;i<N;i++){
+      var x = seed(i+3)*w, y = seed(i+91)*h, c = pal[Math.floor(seed(i+17)*pal.length)];
+      sx.strokeStyle = c + (0.05 + seed(i+29)*0.22) + ')'; sx.lineWidth = 0.6 + seed(i+41)*2.4;
+      sx.beginPath(); sx.moveTo(x,y);
+      for(var s=0;s<60;s++){
+        var nx = x/w, ny = y/h;
+        var ang = Math.sin(nx*3.1 + ny*1.7)*2.2 + Math.cos(ny*4.3 - nx*2.0)*1.6 + Math.sin((nx-ny)*6.0)*.6;
+        x += Math.cos(ang)*4; y += Math.sin(ang)*4; sx.lineTo(x,y);
+      }
+      sx.stroke();
+    }
+    var g = sx.createLinearGradient(0,0,w,0);
+    g.addColorStop(0,'rgba(0,0,0,.1)'); g.addColorStop(.55,'rgba(0,0,0,.2)'); g.addColorStop(1,'rgba(0,0,0,.55)');
+    sx.fillStyle = g; sx.fillRect(0,0,w,h);
+  }
+  drawSwirl();
+
+  /* fundamentos */
+  var funds = [
+    ['Consistência','É uma construção dia a dia, paciente do seu negócio. As coisas não acontecem de um dia para o outro, sempre é de médio a longo prazo que os resultados aparecem. Consistência é a sua base.'],
+    ['Essência','É a razão de existir da sua marca, com seus valores e sua personalidade. Quando a essência está clara, cada peça de comunicação fala a mesma língua.'],
+    ['Estratégia','É o caminho entre onde sua marca está e onde ela quer chegar. Metas claras, público definido e ações planejadas antes de qualquer criação.'],
+    ['Coerência','É dizer e mostrar a mesma coisa em todos os pontos de contato. Do anúncio ao atendimento, a experiência precisa confirmar o que a marca promete.'],
+    ['Posicionamento','É o lugar que sua marca ocupa na mente das pessoas. Ele define com quem você compete, por que escolhem você e quanto vale o que você entrega.']
+  ];
+  var tabs = [].slice.call(document.querySelectorAll('.tab')), panel = document.getElementById('fund');
+  function select(i, focus){
+    tabs.forEach(function(t,k){ var on = k===i; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; });
+    document.getElementById('fundTitle').textContent = funds[i][0];
+    document.getElementById('fundText').textContent = funds[i][1];
+    panel.setAttribute('aria-labelledby', 't'+i);
+    if(focus) tabs[i].focus();
+  }
+  tabs.forEach(function(t,k){
+    t.addEventListener('click', function(){ select(k); });
+    t.addEventListener('keydown', function(e){
+      if(e.key==='ArrowRight'||e.key==='ArrowDown'){ e.preventDefault(); select((k+1)%5, true); }
+      if(e.key==='ArrowLeft'||e.key==='ArrowUp'){ e.preventDefault(); select((k+4)%5, true); }
+    });
+  });
+
+  /* pilares */
+  var pills = [].slice.call(document.querySelectorAll('.pillar'));
+  pills.forEach(function(b){
+    b.addEventListener('click', function(){
+      var open = b.getAttribute('aria-expanded') !== 'true';
+      pills.forEach(function(o){ o.setAttribute('aria-expanded', 'false'); document.getElementById(o.getAttribute('aria-controls')).hidden = true; });
+      b.setAttribute('aria-expanded', open); document.getElementById(b.getAttribute('aria-controls')).hidden = !open;
+    });
+  });
+
+  /* logos: em telas de toque, ganham cor quando chegam ao centro da tela */
+  if(window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ e.target.classList.toggle('on', e.isIntersecting); }); }, {rootMargin:'-42% 0px -42% 0px'});
+    document.querySelectorAll('.logo-grid li').forEach(function(li){ io.observe(li); });
+  }
+
+  /* formulário → WhatsApp */
+  var nome = document.getElementById('nome'), emp = document.getElementById('empresa'), nec = document.getElementById('necessidade'), wa = document.getElementById('waBtn');
+  function buildLink(){
+    var msg = 'Olá, Response! Meu nome é ' + (nome.value.trim() || '...');
+    if(emp.value.trim()) msg += ', da ' + emp.value.trim();
+    msg += '. Quero conversar sobre ' + (nec.value || 'o marketing da minha empresa') + '.';
+    wa.href = 'https://wa.me/5544998418988?text=' + encodeURIComponent(msg);
+  }
+  [nome,emp,nec].forEach(function(el){ el.addEventListener('input', buildLink); el.addEventListener('change', buildLink); });
+  buildLink();
+  wa.addEventListener('click', function(e){
+    var okN = !!nome.value.trim(), okS = !!nec.value;
+    document.getElementById('nomeErr').textContent = okN ? '' : 'Informe seu nome para continuar.';
+    document.getElementById('necErr').textContent = okS ? '' : 'Escolha uma opção para continuar.';
+    if(!okN){ e.preventDefault(); nome.focus(); } else if(!okS){ e.preventDefault(); nec.focus(); }
+  });
+  document.getElementById('leadForm').addEventListener('submit', function(e){ e.preventDefault(); wa.click(); });
+
+  /* revelação ao rolar */
+  if(document.documentElement.classList.contains('anim')){
+    var R=[
+      ['.hero-mark .label','down',0,.05],['.hero-sub','up',0,.9],['.hero-ctas','up',0,1.1],['.hero-foot','fade',0,1.3],
+      ['.about h2','up'],['.about-text','left',0,.1],['.stat','right',0,.15],['.principles li','right',.08,.25],
+      ['.services-head','left'],['.svc','up',.08,.1],
+      ['.swirl .eyebrow','fade'],['.swirl-word','zoom'],['.swirl-text p','right',.12,.1],
+      ['.method-head > div:first-child','left'],['.method-pick','right',0,.15],['.panel','fade'],['.help','up'],['.pillar-list li','right',.08,.2],
+      ['.statement p','left'],['.statement .star','spin',0,.3],
+      ['.clients h2','down'],['.client-row li','up',.1,.1],
+      ['.brand-intro > div:first-child','left'],['.brand-intro .body','right',0,.1],['.skills > div','up'],['.skills-list li','up',.07,.1],
+      ['.ident .inner > div','left'],['.layer-fig','zoom',0,.15],
+      ['.work-head','down'],['.t-a','left'],['.t-b','down',0,.1],['.t-c','right',0,.2],['.t-d','up',0,.25],['.t-e','up',0,.35],['.t-f','right',0,.45],
+      ['.brands-head > div','left'],['.brands-head p','right',0,.1],['.logo-grid li','fade',.06],['.brands-cta','up'],
+      ['.contact .inner > div','left'],['#leadForm','right',0,.15],
+      ['.foot-row > *','up',.08],['.foot-logo','up',0,.1],['.foot-legal','fade',0,.2]
+    ];
+    var counters=[].slice.call(document.querySelectorAll('[data-count]'));
+    counters.forEach(function(c){ c.textContent=(c.dataset.prefix||'')+'0'; });
+    function runCount(c){
+      var end=+c.dataset.count, pre=c.dataset.prefix||'', t0=null, dur=1600;
+      function step(t){ if(!t0) t0=t; var k=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-k,3); c.textContent=pre+Math.round(end*e); if(k<1) requestAnimationFrame(step); }
+      requestAnimationFrame(step);
+    }
+    var rio=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(!e.isIntersecting) return; var el=e.target; el.classList.add('in'); rio.unobserve(el);
+        [].slice.call(el.querySelectorAll('[data-count]')).concat(el.matches('[data-count]')?[el]:[]).forEach(function(c){ if(!c.dataset.done){ c.dataset.done=1; setTimeout(function(){runCount(c)}, 300); } });
+      });
+    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    R.forEach(function(r){
+      [].slice.call(document.querySelectorAll(r[0])).forEach(function(el,i){
+        if(el.hasAttribute('data-reveal')) return;
+        el.setAttribute('data-reveal', r[1]);
+        el.style.setProperty('--d', ((r[3]||0)+Math.min(i,12)*(r[2]||0)).toFixed(2)+'s');
+        rio.observe(el);
+      });
+    });
+  }
+
+  function redraw(){ setupTrails(); drawTrails(0); drawSwirl(); }
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(redraw); }
+  var rt; window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(redraw, 150); });
+})();
+</script>
+
+</body>
+</html>
