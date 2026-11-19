@@ -306,6 +306,13 @@ main{overflow-x:clip}
 .logo-grid img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:filter .45s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
 .logo-grid li:hover img,.logo-grid li:focus-visible img,.logo-grid li.on img{filter:none;transform:scale(1.04)}
 .logo-grid li:focus-visible{outline:2px solid var(--terra);outline-offset:-2px}
+.logo-grid .lg-link{display:block;width:100%;height:100%}
+.logo-grid .lg-link figure{height:100%}
+.logo-grid li:has(.lg-link:focus-visible) img{filter:none}
+.work-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.case-link{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;white-space:nowrap}
+.case-link:hover{opacity:.7}
+.brands-cta .acts{display:flex;gap:10px;flex-wrap:wrap}
 .brands-cta{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-block:44px clamp(56px,7vw,96px)}
 .brands-cta p{font-size:clamp(22px,2.6vw,34px);text-transform:uppercase;line-height:1.15}
 .brands-cta p em{font-style:normal;color:var(--terra)}
@@ -643,6 +650,7 @@ form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 24px;al
       <div class="inner">
         <div class="work-head">
           <h3 class="meta" id="p1">Gatti Premium | Revenda de veículos | São Paulo-SP</h3>
+          <a class="case-link" href="portfolio/gatti-veiculos.html">Ver case completo →</a>
         </div>
         <div class="mood">
           <figure class="t t-a"><img class="ph" src="assets/moodboard/gatti-tapume.jpg" alt="Tapume preto com logotipo Gatti Premium e símbolo G em dourado" width="1600" height="894" loading="lazy" decoding="async"></figure>
@@ -657,6 +665,7 @@ form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 24px;al
       <div class="inner">
         <div class="work-head">
           <h3 class="meta" id="p2">Zero45 | Marca de Roupas | Toledo-PR</h3>
+          <a class="case-link" href="portfolio/zero45-streetwear.html">Ver case completo →</a>
         </div>
         <div class="mood">
           <figure class="t t-a"><img class="ph" src="assets/moodboard/zero45-banner.jpg" alt="Banner Street Wear Clothes da Zero45 pendurado em um galpão" width="1600" height="897" loading="lazy" decoding="async"></figure>
@@ -671,6 +680,7 @@ form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 24px;al
       <div class="inner">
         <div class="work-head">
           <h3 class="meta" id="p3">Colégio Educare | Instituição de Ensino | Umuarama-PR</h3>
+          <a class="case-link" href="portfolio/logo-colegio-educare.html">Ver case completo →</a>
         </div>
         <div class="mood">
           <figure class="t t-a"><img class="ph" src="assets/moodboard/educare-mochilas.jpg" alt="Mochilas laranja e grafite com o selo do Colégio Educare" width="1600" height="899" loading="lazy" decoding="async"></figure>
@@ -690,25 +700,25 @@ form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 24px;al
             <span class="label" style="color:var(--terra)">Portfólio</span>
             <h2 class="h-sec" id="outras" style="margin-top:16px">Outras marcas</h2>
           </div>
-          <p>Identidades criadas pela Response. Passe o mouse sobre cada marca para ver as cores originais.</p>
+          <p>Identidades criadas pela Response. Passe o mouse sobre cada marca para ver as cores originais e clique para abrir o case.</p>
         </div>
         <ul class="logo-grid">
-          <li tabindex="0"><figure><img src="assets/portfolio/granumais.jpg" alt="GranuMais, granulado higiênico"></figure></li>
-          <li tabindex="0"><figure><img src="assets/portfolio/ress.jpg" alt="Ress Clinic"></figure></li>
+          <li><a class="lg-link" href="portfolio/granulado-higienico-granumais.html"><figure><img src="assets/portfolio/granumais.jpg" alt="GranuMais, granulado higiênico"></figure></a></li>
+          <li><a class="lg-link" href="portfolio/ress-clinic.html"><figure><img src="assets/portfolio/ress.jpg" alt="Ress Clinic"></figure></a></li>
           <li tabindex="0"><figure><img src="assets/portfolio/cazan.jpg" alt="Cazan Imóveis"></figure></li>
-          <li tabindex="0"><figure><img src="assets/portfolio/dipdigital.jpg" alt="DipDigital"></figure></li>
-          <li tabindex="0"><figure><img src="assets/portfolio/carzenne.jpg" alt="Carzenne Group"></figure></li>
-          <li tabindex="0"><figure><img src="assets/portfolio/vida-e-flores.jpg" alt="Vida e Flores, floricultura e decoração"></figure></li>
-          <li tabindex="0"><figure><img src="assets/portfolio/andrade-turozi.jpg" alt="Andrade e Turozi Dental Experience"></figure></li>
-          <li tabindex="0"><figure><img src="assets/portfolio/lalinne-caldas.jpg" alt="Dra. Lalinne Caldas, odontologia humanizada"></figure></li>
-          <li tabindex="0"><figure><img src="assets/portfolio/out-decor.jpg" alt="Out.decor"></figure></li>
-          <li tabindex="0"><figure><img src="assets/portfolio/patrick-car-detailing.jpg" alt="Patrick Car Detailing Studio"></figure></li>
-          <li tabindex="0"><figure><img src="assets/portfolio/peleck.jpg" alt="Espetaria Peleck"></figure></li>
-          <li tabindex="0"><figure><img src="assets/portfolio/leo-manicardi.jpg" alt="Leo Manicardi"></figure></li>
+          <li><a class="lg-link" href="portfolio/dip-digital.html"><figure><img src="assets/portfolio/dipdigital.jpg" alt="DipDigital"></figure></a></li>
+          <li><a class="lg-link" href="portfolio/carzenne-group.html"><figure><img src="assets/portfolio/carzenne.jpg" alt="Carzenne Group"></figure></a></li>
+          <li><a class="lg-link" href="portfolio/floricultura-vida-e-flores.html"><figure><img src="assets/portfolio/vida-e-flores.jpg" alt="Vida e Flores, floricultura e decoração"></figure></a></li>
+          <li><a class="lg-link" href="portfolio/dental-experience-andrade-turozi.html"><figure><img src="assets/portfolio/andrade-turozi.jpg" alt="Andrade e Turozi Dental Experience"></figure></a></li>
+          <li><a class="lg-link" href="portfolio/dentista-lalinne-caldas.html"><figure><img src="assets/portfolio/lalinne-caldas.jpg" alt="Dra. Lalinne Caldas, odontologia humanizada"></figure></a></li>
+          <li><a class="lg-link" href="portfolio/out-decor-loja-de-decoracoes.html"><figure><img src="assets/portfolio/out-decor.jpg" alt="Out.decor"></figure></a></li>
+          <li><a class="lg-link" href="portfolio/patrick-car-detailing-studio.html"><figure><img src="assets/portfolio/patrick-car-detailing.jpg" alt="Patrick Car Detailing Studio"></figure></a></li>
+          <li><a class="lg-link" href="portfolio/espetaria-peleck.html"><figure><img src="assets/portfolio/peleck.jpg" alt="Espetaria Peleck"></figure></a></li>
+          <li><a class="lg-link" href="portfolio/leo-manicardi-id.html"><figure><img src="assets/portfolio/leo-manicardi.jpg" alt="Leo Manicardi"></figure></a></li>
         </ul>
         <div class="brands-cta">
           <p>Sua marca pode ser a <em>próxima</em> deste portfólio.</p>
-          <a class="pill pill-green pill-lg" href="#contato">Vamos conversar</a>
+          <div class="acts"><a class="pill pill-line pill-lg" href="portfolio/">Ver portfólio completo</a><a class="pill pill-green pill-lg" href="#contato">Vamos conversar</a></div>
         </div>
       </div>
     </section>
